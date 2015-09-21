@@ -1,22 +1,4 @@
-/*
- * Intel ACPI Component Architecture
- * AML Disassembler version 20100528
- *
- * Disassembly of D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml, Mon Sep 21 09:27:46 2015
- *
- *
- * Original Table Header:
- *     Signature        "DSDT"
- *     Length           0x000101AE (65966)
- *     Revision         0x01 **** ACPI 1.0, no 64-bit math support
- *     Checksum         0xBE
- *     OEM ID           "HPQOEM"
- *     OEM Table ID     "HP      "
- *     OEM Revision     0x00000000 (0)
- *     Compiler ID      "ACPI"
- *     Compiler Version 0x00040000 (262144)
- */
-DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT", 1, "HPQOEM", "HP      ", 0x00000000)
+DefinitionBlock ("dsdt.aml", "DSDT", 1, "HPQOEM", "HP      ", 0x00000000)
 {
     External (HNOT, MethodObj)    // 1 Arguments
     External (SNXD)
@@ -34,12 +16,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
     External (PDC1)
     External (PDC0)
     External (CFGD)
-    External (\TNOT)
     External (\_PR_.CPU0._PPC)
     External (\_PR_.CPU0._PSS)
     External (\_SB_.PCI0.IEIT.EITV, MethodObj)    // 0 Arguments
     External (\_SB_.PCI0.PEG0.PEGP._STA)
-
     Name (SS1, Zero)
     Name (SS2, Zero)
     Name (SS3, One)
@@ -438,7 +418,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
         SLPS,   8, 
         ALAT,   32
     }
-
     OperationRegion (OGNS, SystemMemory, 0x9AFB1018, 0x000010ED)
     Field (OGNS, AnyAcc, Lock, Preserve)
     {
@@ -527,7 +506,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
         OG10,   8, 
         ECON,   8
     }
-
     Mutex (BAMX, 0x00)
     Method (GBTI, 1, NotSerialized)
     {
@@ -551,7 +529,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Release (BAMX)
                     Return (Local0)
                 }
-
                 Store (\_SB.PCI0.LPCB.EC0.RDMW (BDCH, BDCL), Local1)
                 Divide (Local1, 0x0100, Local2, Index (DerefOf (Index (Local0, 0x02)), 
                     One))
@@ -641,7 +618,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Increment (Local2)
                     Increment (Local4)
                 }
-
                 Store (Zero, Index (DerefOf (Index (Local0, 0x02)), Local2))
                 Name (TEMP, Buffer (0x14) {})
                 Store (\_SB.PCI0.LPCB.EC0.RDMS (BMNH, BMNL, 0x0E), TEMP)
@@ -654,7 +630,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (Local2, Index (DerefOf (Index (Local0, 0x02)), Local4))
                     Decrement (Local4)
                 }
-
                 Store (\_SB.PCI0.LPCB.EC0.RDMS (BCTH, BCTL, 0x0E), TEMP)
                 Store (0x11, Local3)
                 Store (0x4E, Local4)
@@ -665,7 +640,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (Local2, Index (DerefOf (Index (Local0, 0x02)), Local4))
                     Decrement (Local4)
                 }
-
                 Store (\_SB.PCI0.LPCB.EC0.RDMS (BDNH, BDNL, 0x07), TEMP)
                 Store (0x07, Local3)
                 Store (0x55, Local4)
@@ -676,7 +650,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (Local2, Index (DerefOf (Index (Local0, 0x02)), Local4))
                     Decrement (Local4)
                 }
-
                 Store (\_SB.PCI0.LPCB.EC0.RDMS (BCHH, BCHL, 0x04), TEMP)
                 Store (0x04, Local3)
                 Store (0x59, Local4)
@@ -687,7 +660,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (Local2, Index (DerefOf (Index (Local0, 0x02)), Local4))
                     Decrement (Local4)
                 }
-
                 Store (\_SB.PCI0.LPCB.EC0.RDMW (BMAH, BMAL), Local1)
                 Divide (Local1, 0x0100, Local2, Index (DerefOf (Index (Local0, 0x02)), 
                     0x5B))
@@ -735,11 +707,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero
                 }, Local0)
         }
-
         Release (BAMX)
         Return (Local0)
     }
-
     Scope (_SB)
     {
         Name (PRSA, ResourceTemplate ()
@@ -763,12 +733,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             {
                 Return (Zero)
             }
-
             Method (_BBN, 0, NotSerialized)
             {
                 Return (BN00 ())
             }
-
             Name (_UID, Zero)
             Name (PR00, Package (0x25)
             {
@@ -779,7 +747,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0016FFFF, 
@@ -787,7 +754,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0016FFFF, 
@@ -795,7 +761,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0016FFFF, 
@@ -803,7 +768,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0016FFFF, 
@@ -811,7 +775,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0019FFFF, 
@@ -819,7 +782,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKE, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001AFFFF, 
@@ -827,7 +789,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001AFFFF, 
@@ -835,7 +796,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKF, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001AFFFF, 
@@ -843,7 +803,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001AFFFF, 
@@ -851,7 +810,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001BFFFF, 
@@ -859,7 +817,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKG, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001CFFFF, 
@@ -867,7 +824,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001CFFFF, 
@@ -875,7 +831,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001CFFFF, 
@@ -883,7 +838,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001CFFFF, 
@@ -891,7 +845,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001DFFFF, 
@@ -899,7 +852,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKH, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001DFFFF, 
@@ -907,7 +859,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001DFFFF, 
@@ -915,7 +866,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001DFFFF, 
@@ -923,7 +873,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001FFFFF, 
@@ -931,7 +880,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKF, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001FFFFF, 
@@ -939,7 +887,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001FFFFF, 
@@ -947,7 +894,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x001FFFFF, 
@@ -955,7 +901,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0001FFFF, 
@@ -963,7 +908,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0001FFFF, 
@@ -971,7 +915,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0001FFFF, 
@@ -979,7 +922,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0001FFFF, 
@@ -987,7 +929,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0002FFFF, 
@@ -995,7 +936,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0004FFFF, 
@@ -1003,7 +943,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0004FFFF, 
@@ -1011,7 +950,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0004FFFF, 
@@ -1019,7 +957,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0004FFFF, 
@@ -1027,7 +964,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0006FFFF, 
@@ -1035,7 +971,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0006FFFF, 
@@ -1043,7 +978,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0006FFFF, 
@@ -1051,7 +985,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0006FFFF, 
@@ -1059,7 +992,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0x0018FFFF, 
@@ -1077,7 +1009,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x15
                 }, 
-
                 Package (0x04)
                 {
                     0x0016FFFF, 
@@ -1085,7 +1016,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x0016FFFF, 
@@ -1093,7 +1023,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0x0016FFFF, 
@@ -1101,7 +1030,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0x0016FFFF, 
@@ -1109,7 +1037,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x0019FFFF, 
@@ -1117,7 +1044,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x14
                 }, 
-
                 Package (0x04)
                 {
                     0x001AFFFF, 
@@ -1125,7 +1051,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x001AFFFF, 
@@ -1133,7 +1058,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x15
                 }, 
-
                 Package (0x04)
                 {
                     0x001AFFFF, 
@@ -1141,7 +1065,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x001AFFFF, 
@@ -1149,7 +1072,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0x001BFFFF, 
@@ -1157,7 +1079,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x16
                 }, 
-
                 Package (0x04)
                 {
                     0x001CFFFF, 
@@ -1165,7 +1086,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0x001CFFFF, 
@@ -1173,7 +1093,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x001CFFFF, 
@@ -1181,7 +1100,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0x001CFFFF, 
@@ -1189,7 +1107,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x001DFFFF, 
@@ -1197,7 +1114,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x17
                 }, 
-
                 Package (0x04)
                 {
                     0x001DFFFF, 
@@ -1205,7 +1121,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x001DFFFF, 
@@ -1213,7 +1128,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0x001DFFFF, 
@@ -1221,7 +1135,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x001FFFFF, 
@@ -1229,7 +1142,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x15
                 }, 
-
                 Package (0x04)
                 {
                     0x001FFFFF, 
@@ -1237,7 +1149,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x001FFFFF, 
@@ -1245,7 +1156,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x001FFFFF, 
@@ -1253,7 +1163,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x0001FFFF, 
@@ -1261,7 +1170,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x0001FFFF, 
@@ -1269,7 +1177,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0x0001FFFF, 
@@ -1277,7 +1184,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0x0001FFFF, 
@@ -1285,7 +1191,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x0002FFFF, 
@@ -1293,7 +1198,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x0004FFFF, 
@@ -1301,7 +1205,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x0004FFFF, 
@@ -1309,7 +1212,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0x0004FFFF, 
@@ -1317,7 +1219,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0x0004FFFF, 
@@ -1325,7 +1226,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x0006FFFF, 
@@ -1333,7 +1233,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0x0006FFFF, 
@@ -1341,7 +1240,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0x0006FFFF, 
@@ -1349,7 +1247,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0x0006FFFF, 
@@ -1357,7 +1254,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0x0018FFFF, 
@@ -1372,10 +1268,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (AR00)
                 }
-
                 Return (PR00)
             }
-
             OperationRegion (HBUS, PCI_Config, Zero, 0x0100)
             Field (HBUS, DWordAcc, NoLock, Preserve)
             {
@@ -1441,12 +1335,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     ,   7, 
                 HTSE,   1
             }
-
             OperationRegion (MCHT, SystemMemory, 0xFED10000, 0x1100)
             Field (MCHT, ByteAcc, NoLock, Preserve)
             {
             }
-
             Name (BUF0, ResourceTemplate ()
             {
                 WordBusNumber (ResourceProducer, MinFixed, MaxFixed, PosDecode,
@@ -1600,157 +1492,131 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     CreateDWordField (BUF0, 0x7C, C0LN)
                     Store (Zero, C0LN)
                 }
-
                 If (LEqual (PM1L, One))
                 {
                     CreateBitField (BUF0, 0x0358, C0RW)
                     Store (Zero, C0RW)
                 }
-
                 If (PM1H)
                 {
                     CreateDWordField (BUF0, 0x96, C4LN)
                     Store (Zero, C4LN)
                 }
-
                 If (LEqual (PM1H, One))
                 {
                     CreateBitField (BUF0, 0x0428, C4RW)
                     Store (Zero, C4RW)
                 }
-
                 If (PM2L)
                 {
                     CreateDWordField (BUF0, 0xB0, C8LN)
                     Store (Zero, C8LN)
                 }
-
                 If (LEqual (PM2L, One))
                 {
                     CreateBitField (BUF0, 0x04F8, C8RW)
                     Store (Zero, C8RW)
                 }
-
                 If (PM2H)
                 {
                     CreateDWordField (BUF0, 0xCA, CCLN)
                     Store (Zero, CCLN)
                 }
-
                 If (LEqual (PM2H, One))
                 {
                     CreateBitField (BUF0, 0x05C8, CCRW)
                     Store (Zero, CCRW)
                 }
-
                 If (PM3L)
                 {
                     CreateDWordField (BUF0, 0xE4, D0LN)
                     Store (Zero, D0LN)
                 }
-
                 If (LEqual (PM3L, One))
                 {
                     CreateBitField (BUF0, 0x0698, D0RW)
                     Store (Zero, D0RW)
                 }
-
                 If (PM3H)
                 {
                     CreateDWordField (BUF0, 0xFE, D4LN)
                     Store (Zero, D4LN)
                 }
-
                 If (LEqual (PM3H, One))
                 {
                     CreateBitField (BUF0, 0x0768, D4RW)
                     Store (Zero, D4RW)
                 }
-
                 If (PM4L)
                 {
                     CreateDWordField (BUF0, 0x0118, D8LN)
                     Store (Zero, D8LN)
                 }
-
                 If (LEqual (PM4L, One))
                 {
                     CreateBitField (BUF0, 0x0838, D8RW)
                     Store (Zero, D8RW)
                 }
-
                 If (PM4H)
                 {
                     CreateDWordField (BUF0, 0x0132, DCLN)
                     Store (Zero, DCLN)
                 }
-
                 If (LEqual (PM4H, One))
                 {
                     CreateBitField (BUF0, 0x0908, DCRW)
                     Store (Zero, DCRW)
                 }
-
                 If (PM5L)
                 {
                     CreateDWordField (BUF0, 0x014C, E0LN)
                     Store (Zero, E0LN)
                 }
-
                 If (LEqual (PM5L, One))
                 {
                     CreateBitField (BUF0, 0x09D8, E0RW)
                     Store (Zero, E0RW)
                 }
-
                 If (PM5H)
                 {
                     CreateDWordField (BUF0, 0x0166, E4LN)
                     Store (Zero, E4LN)
                 }
-
                 If (LEqual (PM5H, One))
                 {
                     CreateBitField (BUF0, 0x0AA8, E4RW)
                     Store (Zero, E4RW)
                 }
-
                 If (PM6L)
                 {
                     CreateDWordField (BUF0, 0x0180, E8LN)
                     Store (Zero, E8LN)
                 }
-
                 If (LEqual (PM6L, One))
                 {
                     CreateBitField (BUF0, 0x0B78, E8RW)
                     Store (Zero, E8RW)
                 }
-
                 If (PM6H)
                 {
                     CreateDWordField (BUF0, 0x019A, ECLN)
                     Store (Zero, ECLN)
                 }
-
                 If (LEqual (PM6H, One))
                 {
                     CreateBitField (BUF0, 0x0C48, ECRW)
                     Store (Zero, ECRW)
                 }
-
                 If (PM0H)
                 {
                     CreateDWordField (BUF0, 0x01B4, F0LN)
                     Store (Zero, F0LN)
                 }
-
                 If (LEqual (PM0H, One))
                 {
                     CreateBitField (BUF0, 0x0D18, F0RW)
                     Store (Zero, F0RW)
                 }
-
                 CreateDWordField (BUF0, 0x01C2, M1MN)
                 CreateDWordField (BUF0, 0x01C6, M1MX)
                 CreateDWordField (BUF0, 0x01CE, M1LN)
@@ -1775,13 +1641,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Store (0x00000000, M2MN)
                     }
-
                     Subtract (Add (M2MN, M2LN), One, M2MX)
                 }
-
                 Return (BUF0)
             }
-
             Name (GUID, Buffer (0x10)
             {
                 /* 0000 */    0x5B, 0x4D, 0xDB, 0x33, 0xF7, 0x1F, 0x1C, 0x40, 
@@ -1811,7 +1674,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         }
                     }
                 }
-
                 If (LAnd (LEqual (Arg0, GUID), NEXP))
                 {
                     Store (CDW2, SUPP)
@@ -1822,23 +1684,19 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             NHPG ()
                         }
-
                         If (And (CTRL, 0x04))
                         {
                             NPME ()
                         }
                     }
-
                     If (LNotEqual (Arg1, One))
                     {
                         Or (CDW1, 0x08, CDW1)
                     }
-
                     If (LNotEqual (CDW3, CTRL))
                     {
                         Or (CDW1, 0x10, CDW1)
                     }
-
                     Store (CTRL, CDW3)
                     Store (CTRL, OSCC)
                     Return (Local0)
@@ -1849,7 +1707,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Return (Local0)
                 }
             }
-
             Device (P0P1)
             {
                 Name (_ADR, 0x001E0000)
@@ -1872,7 +1729,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         })
                     }
                 }
-
                 Name (PR04, Package (0x0C)
                 {
                     Package (0x04)
@@ -1882,7 +1738,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         LNKF, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0xFFFF, 
@@ -1890,7 +1745,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         LNKG, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0xFFFF, 
@@ -1898,7 +1752,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         LNKH, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0xFFFF, 
@@ -1906,7 +1759,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         LNKE, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0x0001FFFF, 
@@ -1914,7 +1766,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         LNKG, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0x0001FFFF, 
@@ -1922,7 +1773,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         LNKF, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0x0001FFFF, 
@@ -1930,7 +1780,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         LNKE, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0x0001FFFF, 
@@ -1938,7 +1787,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         LNKH, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0x0005FFFF, 
@@ -1946,7 +1794,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         LNKC, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0x0005FFFF, 
@@ -1954,7 +1801,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         LNKE, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0x0005FFFF, 
@@ -1962,7 +1808,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         LNKG, 
                         Zero
                     }, 
-
                     Package (0x04)
                     {
                         0x0005FFFF, 
@@ -1980,7 +1825,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero, 
                         0x15
                     }, 
-
                     Package (0x04)
                     {
                         0xFFFF, 
@@ -1988,7 +1832,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero, 
                         0x16
                     }, 
-
                     Package (0x04)
                     {
                         0xFFFF, 
@@ -1996,7 +1839,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero, 
                         0x17
                     }, 
-
                     Package (0x04)
                     {
                         0xFFFF, 
@@ -2004,7 +1846,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero, 
                         0x14
                     }, 
-
                     Package (0x04)
                     {
                         0x0001FFFF, 
@@ -2012,7 +1853,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero, 
                         0x16
                     }, 
-
                     Package (0x04)
                     {
                         0x0001FFFF, 
@@ -2020,7 +1860,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero, 
                         0x15
                     }, 
-
                     Package (0x04)
                     {
                         0x0001FFFF, 
@@ -2028,7 +1867,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero, 
                         0x14
                     }, 
-
                     Package (0x04)
                     {
                         0x0001FFFF, 
@@ -2036,7 +1874,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero, 
                         0x17
                     }, 
-
                     Package (0x04)
                     {
                         0x0005FFFF, 
@@ -2044,7 +1881,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero, 
                         0x12
                     }, 
-
                     Package (0x04)
                     {
                         0x0005FFFF, 
@@ -2052,7 +1888,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero, 
                         0x14
                     }, 
-
                     Package (0x04)
                     {
                         0x0005FFFF, 
@@ -2060,7 +1895,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero, 
                         0x16
                     }, 
-
                     Package (0x04)
                     {
                         0x0005FFFF, 
@@ -2075,11 +1909,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Return (AR04)
                     }
-
                     Return (PR04)
                 }
             }
-
             Device (LPCB)
             {
                 Name (_ADR, 0x001F0000)
@@ -2103,7 +1935,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Offset (0x6E), 
                         XUSB,   1
                     }
-
                     Device (LNKA)
                     {
                         Name (_HID, EisaId ("PNP0C0F"))
@@ -2112,12 +1943,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Or (PARC, 0x80, PARC)
                         }
-
                         Method (_PRS, 0, Serialized)
                         {
                             Return (PRSA)
                         }
-
                         Method (_CRS, 0, Serialized)
                         {
                             Name (RTLA, ResourceTemplate ()
@@ -2130,7 +1959,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             ShiftLeft (One, And (PARC, 0x0F), IRQ0)
                             Return (RTLA)
                         }
-
                         Method (_SRS, 1, Serialized)
                         {
                             CreateWordField (Arg0, One, IRQ0)
@@ -2138,7 +1966,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Decrement (Local0)
                             Store (Local0, PARC)
                         }
-
                         Method (_STA, 0, Serialized)
                         {
                             If (And (PARC, 0x80))
@@ -2151,7 +1978,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Device (LNKB)
                     {
                         Name (_HID, EisaId ("PNP0C0F"))
@@ -2160,12 +1986,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Or (PBRC, 0x80, PBRC)
                         }
-
                         Method (_PRS, 0, Serialized)
                         {
                             Return (PRSB)
                         }
-
                         Method (_CRS, 0, Serialized)
                         {
                             Name (RTLB, ResourceTemplate ()
@@ -2178,7 +2002,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             ShiftLeft (One, And (PBRC, 0x0F), IRQ0)
                             Return (RTLB)
                         }
-
                         Method (_SRS, 1, Serialized)
                         {
                             CreateWordField (Arg0, One, IRQ0)
@@ -2186,7 +2009,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Decrement (Local0)
                             Store (Local0, PBRC)
                         }
-
                         Method (_STA, 0, Serialized)
                         {
                             If (And (PBRC, 0x80))
@@ -2199,7 +2021,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Device (LNKC)
                     {
                         Name (_HID, EisaId ("PNP0C0F"))
@@ -2208,12 +2029,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Or (PCRC, 0x80, PCRC)
                         }
-
                         Method (_PRS, 0, Serialized)
                         {
                             Return (PRSC)
                         }
-
                         Method (_CRS, 0, Serialized)
                         {
                             Name (RTLC, ResourceTemplate ()
@@ -2226,7 +2045,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             ShiftLeft (One, And (PCRC, 0x0F), IRQ0)
                             Return (RTLC)
                         }
-
                         Method (_SRS, 1, Serialized)
                         {
                             CreateWordField (Arg0, One, IRQ0)
@@ -2234,7 +2052,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Decrement (Local0)
                             Store (Local0, PCRC)
                         }
-
                         Method (_STA, 0, Serialized)
                         {
                             If (And (PCRC, 0x80))
@@ -2247,7 +2064,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Device (LNKD)
                     {
                         Name (_HID, EisaId ("PNP0C0F"))
@@ -2256,12 +2072,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Or (PDRC, 0x80, PDRC)
                         }
-
                         Method (_PRS, 0, Serialized)
                         {
                             Return (PRSD)
                         }
-
                         Method (_CRS, 0, Serialized)
                         {
                             Name (RTLD, ResourceTemplate ()
@@ -2274,7 +2088,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             ShiftLeft (One, And (PDRC, 0x0F), IRQ0)
                             Return (RTLD)
                         }
-
                         Method (_SRS, 1, Serialized)
                         {
                             CreateWordField (Arg0, One, IRQ0)
@@ -2282,7 +2095,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Decrement (Local0)
                             Store (Local0, PDRC)
                         }
-
                         Method (_STA, 0, Serialized)
                         {
                             If (And (PDRC, 0x80))
@@ -2295,7 +2107,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Device (LNKE)
                     {
                         Name (_HID, EisaId ("PNP0C0F"))
@@ -2304,12 +2115,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Or (PERC, 0x80, PERC)
                         }
-
                         Method (_PRS, 0, Serialized)
                         {
                             Return (PRSE)
                         }
-
                         Method (_CRS, 0, Serialized)
                         {
                             Name (RTLE, ResourceTemplate ()
@@ -2322,7 +2131,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             ShiftLeft (One, And (PERC, 0x0F), IRQ0)
                             Return (RTLE)
                         }
-
                         Method (_SRS, 1, Serialized)
                         {
                             CreateWordField (Arg0, One, IRQ0)
@@ -2330,7 +2138,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Decrement (Local0)
                             Store (Local0, PERC)
                         }
-
                         Method (_STA, 0, Serialized)
                         {
                             If (And (PERC, 0x80))
@@ -2343,7 +2150,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Device (LNKF)
                     {
                         Name (_HID, EisaId ("PNP0C0F"))
@@ -2352,12 +2158,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Or (PFRC, 0x80, PFRC)
                         }
-
                         Method (_PRS, 0, Serialized)
                         {
                             Return (PRSF)
                         }
-
                         Method (_CRS, 0, Serialized)
                         {
                             Name (RTLF, ResourceTemplate ()
@@ -2370,7 +2174,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             ShiftLeft (One, And (PFRC, 0x0F), IRQ0)
                             Return (RTLF)
                         }
-
                         Method (_SRS, 1, Serialized)
                         {
                             CreateWordField (Arg0, One, IRQ0)
@@ -2378,7 +2181,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Decrement (Local0)
                             Store (Local0, PFRC)
                         }
-
                         Method (_STA, 0, Serialized)
                         {
                             If (And (PFRC, 0x80))
@@ -2391,7 +2193,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Device (LNKG)
                     {
                         Name (_HID, EisaId ("PNP0C0F"))
@@ -2400,12 +2201,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Or (PGRC, 0x80, PGRC)
                         }
-
                         Method (_PRS, 0, Serialized)
                         {
                             Return (PRSG)
                         }
-
                         Method (_CRS, 0, Serialized)
                         {
                             Name (RTLG, ResourceTemplate ()
@@ -2418,7 +2217,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             ShiftLeft (One, And (PGRC, 0x0F), IRQ0)
                             Return (RTLG)
                         }
-
                         Method (_SRS, 1, Serialized)
                         {
                             CreateWordField (Arg0, One, IRQ0)
@@ -2426,7 +2224,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Decrement (Local0)
                             Store (Local0, PGRC)
                         }
-
                         Method (_STA, 0, Serialized)
                         {
                             If (And (PGRC, 0x80))
@@ -2439,7 +2236,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Device (LNKH)
                     {
                         Name (_HID, EisaId ("PNP0C0F"))
@@ -2448,12 +2244,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Or (PHRC, 0x80, PHRC)
                         }
-
                         Method (_PRS, 0, Serialized)
                         {
                             Return (PRSH)
                         }
-
                         Method (_CRS, 0, Serialized)
                         {
                             Name (RTLH, ResourceTemplate ()
@@ -2466,7 +2260,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             ShiftLeft (One, And (PHRC, 0x0F), IRQ0)
                             Return (RTLH)
                         }
-
                         Method (_SRS, 1, Serialized)
                         {
                             CreateWordField (Arg0, One, IRQ0)
@@ -2474,7 +2267,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Decrement (Local0)
                             Store (Local0, PHRC)
                         }
-
                         Method (_STA, 0, Serialized)
                         {
                             If (And (PHRC, 0x80))
@@ -2488,7 +2280,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         }
                     }
                 }
-
                 OperationRegion (LPC0, PCI_Config, 0x40, 0xC0)
                 Field (LPC0, AnyAcc, NoLock, Preserve)
                 {
@@ -2500,7 +2291,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         ,   13, 
                     RCBA,   18
                 }
-
                 Scope (\)
                 {
                     Name (CCTT, 0x64)
@@ -2509,7 +2299,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Name (LGS5, Zero)
                     Name (CPSV, 0x05)
                 }
-
                 Scope (\_TZ)
                 {
                     ThermalZone (PGTZ)
@@ -2523,43 +2312,35 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Multiply (Local2, 0x0A, Local2)
                                 Add (0x0AAC, Local2, Local2)
                             }
-
                             If (PDS4)
                             {
                                 Store (Zero, PDS4)
                                 Return (0x127C)
                             }
-
                             If (LEqual (LGS4, One))
                             {
                                 Store (0xA5, OSOS)
                                 Return (Local2)
                             }
-
                             If (LEqual (LGS5, One))
                             {
                                 Store (0xA5, OSOS)
                                 Return (0x12A4)
                             }
-
                             If (\_SB.PCI0.LPCB.EC0.ECAV ())
                             {
                                 Store (\_SB.PCI0.LPCB.EC0.CPUT, CTTT)
                             }
-
                             If (LGreaterEqual (CTTT, CCTT))
                             {
                                 Store (0xA5, OSOS)
                             }
-
                             Return (Add (0x0AAC, Multiply (CTTT, 0x0A)))
                         }
-
                         Method (_CRT, 0, NotSerialized)
                         {
                             Return (Add (^^PGT2._HOT (), 0x0A))
                         }
-
                         Name (_TSP, 0x0A)
                         Method (_PSL, 0, NotSerialized)
                         {
@@ -2577,7 +2358,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     \_PR.CPU7
                                 })
                             }
-
                             If (LEqual (TCNT, 0x04))
                             {
                                 Return (Package (0x04)
@@ -2588,7 +2368,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     \_PR.CPU3
                                 })
                             }
-
                             If (LEqual (TCNT, 0x02))
                             {
                                 Return (Package (0x02)
@@ -2597,13 +2376,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     \_PR.CPU1
                                 })
                             }
-
                             Return (Package (0x01)
                             {
                                 \_PR.CPU0
                             })
                         }
-
                         Method (_PSV, 0, NotSerialized)
                         {
                             If (\_SB.PCI0.LPCB.EC0.ECAV ())
@@ -2620,10 +2397,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     If (LEqual (\_SB.PCI0.LPCB.EC0.CSDM, 0x02)) {}
                                 }
                             }
-
                             Return (Add (0x0AAC, Multiply (CPSV, 0x0A)))
                         }
-
                         Name (PEGN, "Processor Thermal Zone")
                         Name (FMAX, 0x1F40)
                         Name (FMIN, Zero)
@@ -2634,10 +2409,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {
                                 Store (\_SB.PCI0.LPCB.EC0.TA0R, Local0)
                             }
-
                             Return (Local0)
                         }
-
                         Method (FSSP, 1, NotSerialized)
                         {
                             If (\_SB.PCI0.LPCB.EC0.ECAV ())
@@ -2646,7 +2419,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     ThermalZone (PGT2)
                     {
                         Name (PDS4, Zero)
@@ -2658,55 +2430,45 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Multiply (Local2, 0x0A, Local2)
                                 Add (0x0AAC, Local2, Local2)
                             }
-
                             If (PDS4)
                             {
                                 Store (Zero, PDS4)
                                 Return (0x127C)
                             }
-
                             If (LEqual (LGS4, One))
                             {
                                 Store (0xA5, OSOS)
                                 Return (Local2)
                             }
-
                             If (LEqual (LGS5, One))
                             {
                                 Store (0xA5, OSOS)
                                 Return (0x12A4)
                             }
-
                             If (\_SB.PCI0.LPCB.EC0.ECAV ())
                             {
                                 Store (\_SB.PCI0.LPCB.EC0.CPUT, CTTT)
                             }
-
                             If (LGreaterEqual (CTTT, CCTT))
                             {
                                 Store (0xA5, OSOS)
                             }
-
                             Return (Add (0x0AAC, Multiply (CTTT, 0x0A)))
                         }
-
                         Method (_HOT, 0, NotSerialized)
                         {
                             If (\_SB.PCI0.LPCB.EC0.ECAV ())
                             {
                                 Store (\_SB.PCI0.LPCB.EC0.OCRT, CCTT)
                             }
-
                             Return (Add (0x0AAC, Multiply (CCTT, 0x0A)))
                         }
-
                         Method (_CRT, 0, NotSerialized)
                         {
                             Return (Add (_HOT (), 0x0A))
                         }
                     }
                 }
-
                 Name (ONAM, "PegaTron")
                 Name (MBLF, 0x0A)
                 Name (OSFG, Zero)
@@ -2722,7 +2484,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     DG16,   16
                 }
-
                 Method (DBGO, 1, NotSerialized)
                 {
                     Store (0x8888, DG16)
@@ -2731,7 +2492,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Decrement (Local0)
                     }
-
                     Store (Arg0, DG16)
                     Store (0x00200000, Local0)
                     While (Local0)
@@ -2739,19 +2499,16 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Decrement (Local0)
                     }
                 }
-
                 Method (DB16, 1, NotSerialized)
                 {
                     Store (Arg0, DG16)
                 }
-
                 OperationRegion (DP72, SystemIO, 0x72, 0x02)
                 Field (DP72, ByteAcc, NoLock, Preserve)
                 {
                     IP72,   8, 
                     DP73,   8
                 }
-
                 OperationRegion (KBRW, SystemIO, 0x62, 0x05)
                 Field (KBRW, ByteAcc, NoLock, Preserve)
                 {
@@ -2759,7 +2516,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Offset (0x04), 
                     KP66,   8
                 }
-
                 OperationRegion (KB64, SystemIO, 0x66, One)
                 Field (KB64, ByteAcc, NoLock, Preserve)
                 {
@@ -2767,14 +2523,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     IB66,   1, 
                             Offset (0x01)
                 }
-
                 OperationRegion (E25X, SystemIO, 0x025C, 0x02)
                 Field (E25X, ByteAcc, NoLock, Preserve)
                 {
                     E25C,   8, 
                     E25D,   8
                 }
-
                 OperationRegion (E25S, SystemIO, 0x025D, One)
                 Field (E25S, ByteAcc, NoLock, Preserve)
                 {
@@ -2783,7 +2537,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     R25D,   1, 
                             Offset (0x01)
                 }
-
                 Device (EC0)
                 {
                     Name (_HID, EisaId ("PNP0C09"))
@@ -2807,7 +2560,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Return (0x0F)
                     }
-
                     Name (BLTS, One)
                     OperationRegion (ECMM, EmbeddedControl, Zero, 0x0100)
                     Field (ECMM, ByteAcc, Lock, Preserve)
@@ -2934,7 +2686,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         B1SN,   16, 
                         B1SC,   16
                     }
-
                     OperationRegion (PMRS, EmbeddedControl, 0x80, One)
                     Field (PMRS, ByteAcc, NoLock, Preserve)
                     {
@@ -2944,7 +2695,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         BATL,   1, 
                                 Offset (0x01)
                     }
-
                     OperationRegion (BATS, EmbeddedControl, 0x81, 0x02)
                     Field (BATS, ByteAcc, NoLock, Preserve)
                     {
@@ -2963,12 +2713,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             ,   2, 
                         B1ER,   1
                     }
-
                     Method (ECAV, 0, NotSerialized)
                     {
                         Return (ECON)
                     }
-
                     Method (_REG, 2, NotSerialized)
                     {
                         If (LEqual (Arg0, 0x03))
@@ -2993,7 +2741,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 {
                                     TURB (Zero)
                                 }
-
                                 RRST ()
                                 MMWR (0x0A, 0x42, SizeOf (\_PR.CPU0._PSS))
                                 If (LEqual (OSYS, 0x07D0))
@@ -3007,7 +2754,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Method (ACCR, 1, NotSerialized)
                     {
                         Acquire (ECMX, 0xFFFF)
@@ -3015,7 +2761,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Sleep (One)
                         }
-
                         Store (0x000FFFFF, Local0)
                         While (Local0)
                         {
@@ -3029,7 +2774,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Store (Zero, Local0)
                             }
                         }
-
                         While (I25D) {}
                         Store (0xC7, E25D)
                         While (I25D) {}
@@ -3048,12 +2792,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 }
                             }
                         }
-
                         Store (E25C, Local0)
                         Release (ECMX)
                         Return (Local0)
                     }
-
                     Method (ACCW, 2, NotSerialized)
                     {
                         Acquire (ECMX, 0xFFFF)
@@ -3061,7 +2803,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Sleep (One)
                         }
-
                         While (I25D) {}
                         Store (0xC6, E25D)
                         While (I25D) {}
@@ -3071,7 +2812,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         While (I25D) {}
                         Release (ECMX)
                     }
-
                     Method (EFAN, 1, NotSerialized)
                     {
                         Store (Arg0, Local2)
@@ -3082,7 +2822,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Sleep (One)
                         }
-
                         While (I25D) {}
                         Store (0x84, E25D)
                         While (I25D) {}
@@ -3092,7 +2831,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         While (I25D) {}
                         Release (ECMX)
                     }
-
                     Method (MMRD, 2, NotSerialized)
                     {
                         Acquire (ECMX, 0xFFFF)
@@ -3100,7 +2838,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Sleep (One)
                         }
-
                         Store (0x000FFFFF, Local0)
                         While (Local0)
                         {
@@ -3114,7 +2851,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Store (Zero, Local0)
                             }
                         }
-
                         While (I25D) {}
                         Store (0x80, E25D)
                         While (I25D) {}
@@ -3131,12 +2867,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Store (Zero, Local0)
                             }
                         }
-
                         Store (E25C, Local0)
                         Release (ECMX)
                         Return (Local0)
                     }
-
                     Method (MMWR, 3, NotSerialized)
                     {
                         Acquire (ECMX, 0xFFFF)
@@ -3144,7 +2878,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Sleep (One)
                         }
-
                         While (I25D) {}
                         Store (0x81, E25D)
                         While (I25D) {}
@@ -3156,13 +2889,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         While (I25D) {}
                         Release (ECMX)
                     }
-
                     Method (GECP, 1, Serialized)
                     {
                         Store (GTB6 (Arg0), Local0)
                         Return (Local0)
                     }
-
                     Method (SECP, 2, Serialized)
                     {
                         Store (Arg0, Local0)
@@ -3174,10 +2905,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (0x40, Local1)
                         }
-
                         STB6 (Local0, Local1)
                     }
-
                     Method (GTB6, 1, Serialized)
                     {
                         Store (0x87, CMD1)
@@ -3188,7 +2917,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (CMD1, Local0)
                         Return (Local0)
                     }
-
                     Method (STB6, 2, Serialized)
                     {
                         Store (0x87, CMD1)
@@ -3196,7 +2924,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (Arg0, CMD3)
                         Store (0xB6, CMCM)
                     }
-
                     Name (ACBK, One)
                     Method (ACAP, 0, Serialized)
                     {
@@ -3216,19 +2943,15 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (ACBK, Local0)
                         }
-
                         Store (Local0, PWRS)
                         Return (Local0)
                     }
-
                     Method (ECPT, 1, NotSerialized)
                     {
                     }
-
                     Method (ECWK, 1, NotSerialized)
                     {
                     }
-
                     Scope (^^^PCI0)
                     {
                         Name (ACST, Zero)
@@ -3255,7 +2978,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 }
                             }
                         }
-
                         Device (AC0)
                         {
                             Name (_HID, "ACPI0003")
@@ -3263,14 +2985,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {
                                 Return (^^LPCB.EC0.ACAP ())
                             }
-
                             Name (_PCL, Package (0x01)
                             {
                                 ^LPCB.EC0
                             })
                         }
                     }
-
                     Device (BAT0)
                     {
                         Name (_HID, EisaId ("PNP0C0A"))
@@ -3293,10 +3013,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     Store (0x0F, Local0)
                                 }
                             }
-
                             Return (Local0)
                         }
-
                         Name (LOW2, 0xFA)
                         Name (DVOT, 0x07)
                         Name (PUNT, One)
@@ -3341,12 +3059,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 {
                                     Return (NBIF)
                                 }
-
                                 If (LEqual (GBTT (Zero), 0xFF))
                                 {
                                     Return (NBIF)
                                 }
-
                                 BSEL (Zero)
                                 Store (BIF9 (), Index (PBIF, 0x09))
                                 Store (ONAM, Index (PBIF, 0x0C))
@@ -3371,18 +3087,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                         }
                                     }
                                 }
-
                                 If (LEqual (PUNT, Zero))
                                 {
                                     Multiply (Local2, 0x0A, Local2)
                                 }
-
                                 Store (Local2, LFCC)
                             }
-
                             Return (PBIF)
                         }
-
                         Method (FBIF, 5, NotSerialized)
                         {
                             Store (Arg0, PUNT)
@@ -3393,7 +3105,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Multiply (Local1, 0x0A, Local1)
                                 Multiply (Local2, 0x0A, Local2)
                             }
-
                             Store (Arg0, Index (PBIF, Zero))
                             Store (Local1, Index (PBIF, One))
                             Store (Local2, Index (PBIF, 0x02))
@@ -3409,7 +3120,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (Local7, Index (PBIF, 0x07))
                             Store (Local7, Index (PBIF, 0x08))
                         }
-
                         Method (CBIF, 0, NotSerialized)
                         {
                             If (PUNT)
@@ -3432,7 +3142,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     ))
                             }
                         }
-
                         Name (NBST, Package (0x04)
                         {
                             Zero, 
@@ -3455,12 +3164,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 {
                                     Return (NBST)
                                 }
-
                                 If (LEqual (GBTT (Zero), 0xFF))
                                 {
                                     Return (NBST)
                                 }
-
                                 BSEL (Zero)
                                 Store (BSTS (), Local0)
                                 Store (BCRT (), Local1)
@@ -3470,7 +3177,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 {
                                     Store (LFCC, Local2)
                                 }
-
                                 Store (BVOT (), Local3)
                                 If (LNotEqual (Local0, Ones))
                                 {
@@ -3486,10 +3192,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     }
                                 }
                             }
-
                             Return (PBST)
                         }
-
                         Method (FBST, 4, NotSerialized)
                         {
                             And (Arg1, 0xFFFF, Local1)
@@ -3498,7 +3202,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {
                                 Store (One, Local0)
                             }
-
                             If (Local0)
                             {
                                 If (BCHG (Zero))
@@ -3514,26 +3217,22 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {
                                 Store (One, Local0)
                             }
-
                             And (Arg0, 0x0300, Local2)
                             If (Local2)
                             {
                                 ShiftLeft (One, 0x02, Local2)
                                 Or (Local0, Local2, Local0)
                             }
-
                             If (LGreaterEqual (Local1, 0x8000))
                             {
                                 Subtract (0xFFFF, Local1, Local1)
                             }
-
                             Store (Arg2, Local2)
                             If (LEqual (PUNT, Zero))
                             {
                                 Multiply (Local1, DVOT, Local1)
                                 Multiply (Local2, 0x0A, Local2)
                             }
-
                             And (Local0, 0x02, Local3)
                             If (LNot (Local3))
                             {
@@ -3553,7 +3252,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     Store (Local4, Local2)
                                 }
                             }
-
                             If (LNot (ACAP ()))
                             {
                                 Divide (Local2, MBLF, Local3, Local4)
@@ -3562,13 +3260,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     Store (Local4, Local1)
                                 }
                             }
-
                             Store (Local0, Index (PBST, Zero))
                             Store (Local1, Index (PBST, One))
                             Store (Local2, Index (PBST, 0x02))
                             Store (Arg3, Index (PBST, 0x03))
                         }
-
                         Method (CBST, 0, NotSerialized)
                         {
                             If (PUNT)
@@ -3580,7 +3276,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Method (_QA0, 0, NotSerialized)
                     {
                         If (LEqual (0x87, DIAC))
@@ -3593,13 +3288,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Store (Zero, DIAC)
                             }
                         }
-
                         Notify (BAT0, 0x80)
                         If (ECAV ())
                         {
                             GSMA ()
                         }
-
                         PNOT ()
                         Store (^^^^WMID.GTCS (), Local7)
                         If (ACAP ())
@@ -3620,7 +3313,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     Notify (^^^PEG0.PEGP, 0xD1)
                                 }
                             }
-
                             If (LEqual (SMTA, 0x02))
                             {
                                 If (CondRefOf (\_SB.PCI0.PEG0.PEGP._STA, Local0))
@@ -3638,40 +3330,32 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Method (_QA1, 0, NotSerialized)
                     {
                         Notify (BAT0, 0x80)
                         Notify (BAT0, 0x81)
                     }
-
                     Method (_QA2, 0, NotSerialized)
                     {
                     }
-
                     Method (_QA3, 0, NotSerialized)
                     {
                         Notify (BAT0, 0x80)
                     }
-
                     Method (_QA4, 0, NotSerialized)
                     {
                     }
-
                     Method (_QA5, 0, NotSerialized)
                     {
                         Notify (BAT0, 0x80)
                     }
-
                     Method (_Q31, 0, NotSerialized)
                     {
                     }
-
                     Method (_Q32, 0, NotSerialized)
                     {
                         Notify (BAT0, 0x80)
                     }
-
                     Method (_Q33, 0, NotSerialized)
                     {
                         Sleep (0x64)
@@ -3679,12 +3363,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (CPUT, Local1)
                         }
-
                         If (ECAV ())
                         {
                             Store (OCRT, Local2)
                         }
-
                         If (LEqual (LGS5, Zero))
                         {
                             If (LEqual (LGS4, Zero))
@@ -3696,7 +3378,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 }
                             }
                         }
-
                         If (LEqual (LGS5, Zero))
                         {
                             If (LEqual (LGS4, Zero))
@@ -3709,7 +3390,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Method (BCHG, 1, Serialized)
                     {
                         If (ECAV ())
@@ -3731,10 +3411,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Zero, Local0)
                         }
-
                         Return (Local0)
                     }
-
                     Method (GBTT, 1, Serialized)
                     {
                         If (ECAV ())
@@ -3754,10 +3432,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (0xFF, Local0)
                         }
-
                         Return (Local0)
                     }
-
                     Method (BIF0, 0, NotSerialized)
                     {
                         If (ECAV ())
@@ -3770,7 +3446,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {
                                 Store (B0MD, Local0)
                             }
-
                             If (LNotEqual (Local0, 0xFFFF))
                             {
                                 ShiftRight (Local0, 0x0F, Local1)
@@ -3782,10 +3457,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Ones, Local0)
                         }
-
                         Return (Local0)
                     }
-
                     Method (BIF1, 0, NotSerialized)
                     {
                         If (ECAV ())
@@ -3798,17 +3471,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {
                                 Store (B0DC, Local0)
                             }
-
                             And (Local0, 0xFFFF, Local0)
                         }
                         Else
                         {
                             Store (Ones, Local0)
                         }
-
                         Return (Local0)
                     }
-
                     Method (BIF2, 0, NotSerialized)
                     {
                         If (ECAV ())
@@ -3821,17 +3491,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {
                                 Store (B0FC, Local0)
                             }
-
                             And (Local0, 0xFFFF, Local0)
                         }
                         Else
                         {
                             Store (Ones, Local0)
                         }
-
                         Return (Local0)
                     }
-
                     Method (BIF3, 0, NotSerialized)
                     {
                         If (ECAV ())
@@ -3844,7 +3511,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {
                                 Store (B0MD, Local0)
                             }
-
                             If (LNotEqual (Local0, 0xFFFF))
                             {
                                 ShiftRight (Local0, 0x09, Local0)
@@ -3856,10 +3522,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Ones, Local0)
                         }
-
                         Return (Local0)
                     }
-
                     Method (BIF4, 0, NotSerialized)
                     {
                         If (ECAV ())
@@ -3877,10 +3541,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Ones, Local0)
                         }
-
                         Return (Local0)
                     }
-
                     Method (BIF9, 0, NotSerialized)
                     {
                         Name (BSTR, Buffer (0x20) {})
@@ -3888,7 +3550,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (Zero, Index (BSTR, 0x06))
                         Return (BSTR)
                     }
-
                     Method (BIFA, 0, NotSerialized)
                     {
                         If (ECAV ())
@@ -3906,10 +3567,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Ones, Local0)
                         }
-
                         Return (Local0)
                     }
-
                     Method (BSTS, 0, NotSerialized)
                     {
                         If (ECAV ())
@@ -3927,10 +3586,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Ones, Local0)
                         }
-
                         Return (Local0)
                     }
-
                     Method (BCRT, 0, NotSerialized)
                     {
                         If (ECAV ())
@@ -3948,10 +3605,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Ones, Local0)
                         }
-
                         Return (Local0)
                     }
-
                     Method (BRCP, 0, NotSerialized)
                     {
                         If (ECAV ())
@@ -3964,7 +3619,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {
                                 Store (B0RC, Local0)
                             }
-
                             If (LEqual (Local0, 0xFFFF))
                             {
                                 Store (Ones, Local0)
@@ -3974,10 +3628,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Ones, Local0)
                         }
-
                         Return (Local0)
                     }
-
                     Method (BVOT, 0, NotSerialized)
                     {
                         If (ECAV ())
@@ -3995,16 +3647,13 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Ones, Local0)
                         }
-
                         Return (Local0)
                     }
-
                     Method (CHGS, 1, Serialized)
                     {
                         Store (BCHG (Arg0), Local0)
                         Return (Local0)
                     }
-
                     Name (BSLF, Zero)
                     Method (BSEL, 1, Serialized)
                     {
@@ -4017,13 +3666,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (Zero, BSLF)
                         }
                     }
-
                     Method (RDMB, 2, Serialized)
                     {
                         Store (MMRD (Arg0, Arg1), Local0)
                         Return (Local0)
                     }
-
                     Method (RDMW, 2, Serialized)
                     {
                         Store (Zero, Local1)
@@ -4034,7 +3681,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Add (Local0, Local1, Local0)
                         Return (Local0)
                     }
-
                     Method (RDMS, 3, Serialized)
                     {
                         Name (TEMM, Buffer (Arg2)
@@ -4049,10 +3695,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Decrement (Arg2)
                             Increment (Local0)
                         }
-
                         Return (TEMM)
                     }
-
                     Method (WTOS, 2, Serialized)
                     {
                         Name (TEMM, Buffer (Arg1)
@@ -4066,10 +3710,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Add (Local1, 0x30, Local1)
                             Store (Local1, Index (TEMM, Arg1))
                         }
-
                         Return (TEMM)
                     }
-
                     Method (DTOS, 1, Serialized)
                     {
                         Name (YMDS, Buffer (0x0A)
@@ -4087,7 +3729,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (WTOS (And (Arg0, 0x1F), 0x02), DATE)
                         Return (YMDS)
                     }
-
                     Method (CBAT, 1, NotSerialized)
                     {
                         Acquire (ECMX, 0xFFFF)
@@ -4095,7 +3736,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Sleep (One)
                         }
-
                         While (I25D) {}
                         Store (0x92, E25D)
                         While (I25D) {}
@@ -4107,13 +3747,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (One, E25C)
                         }
-
                         While (I25D) {}
                         Store (Zero, E25C)
                         While (I25D) {}
                         Release (ECMX)
                     }
-
                     Method (ACEN, 1, NotSerialized)
                     {
                         Acquire (ECMX, 0xFFFF)
@@ -4121,7 +3759,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Sleep (One)
                         }
-
                         While (I25D) {}
                         Store (0x92, E25D)
                         While (I25D) {}
@@ -4133,13 +3770,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (One, E25C)
                         }
-
                         While (I25D) {}
                         Store (0x06, E25C)
                         While (I25D) {}
                         Release (ECMX)
                     }
-
                     Method (ECCB, 1, NotSerialized)
                     {
                         Acquire (ECMX, 0xFFFF)
@@ -4147,7 +3782,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Sleep (One)
                         }
-
                         While (I25D) {}
                         Store (0xC1, E25D)
                         While (I25D) {}
@@ -4159,11 +3793,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (0x02, E25C)
                         }
-
                         While (I25D) {}
                         Release (ECMX)
                     }
-
                     Method (SETC, 1, NotSerialized)
                     {
                         Acquire (ECMX, 0xFFFF)
@@ -4172,14 +3804,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         WREC (0x05, 0xF1, And (Arg0, 0xFF))
                         Release (ECMX)
                     }
-
                     Method (WREC, 3, NotSerialized)
                     {
                         While (R25D)
                         {
                             Sleep (One)
                         }
-
                         While (I25D) {}
                         Store (0x81, E25D)
                         While (I25D) {}
@@ -4190,13 +3820,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (Arg2, E25C)
                         While (I25D) {}
                     }
-
                     Method (PBFE, 3, NotSerialized)
                     {
                         CreateByteField (Arg0, Arg1, TIDX)
                         Store (Arg2, TIDX)
                     }
-
                     Name (CHAR, Package (0x10)
                     {
                         "0", 
@@ -4228,10 +3856,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Concatenate (Local0, Local2, Local5)
                             Store (Local5, Local0)
                         }
-
                         Return (Local0)
                     }
-
                     Name (HKID, Zero)
                     Name (HKSC, Zero)
                     Name (DIAC, Zero)
@@ -4242,33 +3868,28 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (0x219C, HKID)
                         Store (0xE001, HKSC)
                     }
-
                     Method (_QCF, 0, NotSerialized)
                     {
                         Store (0x0131, HKID)
                         Store (0xE001, HKSC)
                     }
-
                     Method (_QAF, 0, NotSerialized)
                     {
                         Store (0x019B, HKID)
                         Store (Zero, HKSC)
                     }
-
                     Method (_QBF, 0, NotSerialized)
                     {
                         Store (0x01B6, HKID)
                         Store (Zero, HKSC)
                         Notify (^^^GFX0.DD02, 0x87)
                     }
-
                     Method (_Q0C, 0, NotSerialized)
                     {
                         Store (0x01B7, HKID)
                         Store (Zero, HKSC)
                         Notify (^^^GFX0.DD02, 0x86)
                     }
-
                     Method (_Q0D, 0, NotSerialized)
                     {
                         Store (0x01AE, HKID)
@@ -4278,47 +3899,39 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             ^^^GFX0.GNOT (One, 0x80)
                         }
                     }
-
                     Method (_Q0E, 0, NotSerialized)
                     {
                     }
-
                     Method (_Q0F, 0, NotSerialized)
                     {
                         Store (0x0267, HKID)
                         Store (0xE010, HKSC)
                     }
-
                     Method (_Q10, 0, NotSerialized)
                     {
                         Store (0x0265, HKID)
                         Store (0xE022, HKSC)
                     }
-
                     Method (_Q11, 0, NotSerialized)
                     {
                         Store (0x0268, HKID)
                         Store (0xE019, HKSC)
                     }
-
                     Method (_Q12, 0, NotSerialized)
                     {
                         Store (0x026B, HKID)
                         Store (0xE02E, HKSC)
                     }
-
                     Method (_Q13, 0, NotSerialized)
                     {
                         Store (0x026C, HKID)
                         Store (0xE030, HKSC)
                     }
-
                     Method (_Q14, 0, NotSerialized)
                     {
                         Store (0x026A, HKID)
                         Store (0xE020, HKSC)
                     }
-
                     Method (_Q15, 0, NotSerialized)
                     {
                         If (ECAV ())
@@ -4337,7 +3950,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                         Or (Local0, One, Local0)
                                     }
                                 }
-
                                 If (LNotEqual (BTVD, Zero))
                                 {
                                     If (And (WBST, 0x02))
@@ -4345,7 +3957,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                         Or (Local0, 0x02, Local0)
                                     }
                                 }
-
                                 If (LNotEqual (Local0, Zero))
                                 {
                                     If (LNotEqual (WLVD, Zero))
@@ -4353,7 +3964,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                         STWL (Zero)
                                         And (WBST, 0xFE, WBST)
                                     }
-
                                     If (LNotEqual (BTVD, Zero))
                                     {
                                         STBT (Zero)
@@ -4370,17 +3980,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                             {
                                                 STWL (One)
                                             }
-
                                             Or (WBST, One, WBST)
                                         }
-
                                         If (LNotEqual (BTVD, Zero))
                                         {
                                             If (And (WWST, 0x02))
                                             {
                                                 STBT (One)
                                             }
-
                                             Or (WBST, 0x02, WBST)
                                         }
                                     }
@@ -4391,7 +3998,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                             STWL (One)
                                             Or (WBST, One, WBST)
                                         }
-
                                         If (LNotEqual (BTVD, Zero))
                                         {
                                             STBT (One)
@@ -4399,7 +4005,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                         }
                                     }
                                 }
-
                                 If (^^^^WMID.WLAS)
                                 {
                                     Store (And (WWST, WBST), WDST)
@@ -4408,7 +4013,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 {
                                     Store (WBST, WDST)
                                 }
-
                                 If (LEqual (And (GL08, 0x20), Zero))
                                 {
                                     Store (Zero, Local0)
@@ -4419,7 +4023,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                             Or (Local0, One, Local0)
                                         }
                                     }
-
                                     If (LNotEqual (BTVD, Zero))
                                     {
                                         If (RDBT (Zero))
@@ -4427,7 +4030,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                             Or (Local0, 0x02, Local0)
                                         }
                                     }
-
                                     If (LEqual (Local0, Zero))
                                     {
                                         SWED (Zero)
@@ -4437,24 +4039,20 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                         SWED (One)
                                     }
                                 }
-
                                 Store (0x05, ^^^^WMID.WEI1)
                                 Store (Zero, ^^^^WMID.WED1)
                                 Notify (WMID, 0x80)
                             }
                         }
                     }
-
                     Method (_Q8A, 0, NotSerialized)
                     {
                         If (LLess (\_PR.CPU0._PPC, Subtract (SizeOf (\_PR.CPU0._PSS), One)))
                         {
                             Increment (\_PR.CPU0._PPC)
                         }
-
                         PNOT ()
                     }
-
                     Method (_Q8B, 0, Serialized)
                     {
                         If (LGreater (\_PR.CPU0._PPC, Zero))
@@ -4463,13 +4061,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             PNOT ()
                         }
                     }
-
                     Method (_Q8C, 0, Serialized)
                     {
                         Store (Zero, \_PR.CPU0._PPC)
                         PNOT ()
                     }
-
                     Method (_Q88, 0, NotSerialized)
                     {
                         If (CondRefOf (\_SB.PCI0.PEG0.PEGP._STA, Local0))
@@ -4477,7 +4073,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Notify (^^^PEG0.PEGP, 0xD4)
                         }
                     }
-
                     Method (_Q89, 0, NotSerialized)
                     {
                         If (CondRefOf (\_SB.PCI0.PEG0.PEGP._STA, Local0))
@@ -4485,25 +4080,21 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Notify (^^^PEG0.PEGP, 0xD2)
                         }
                     }
-
                     Name (GSOK, Zero)
                     Method (_QF1, 0, NotSerialized)
                     {
                         Store (One, GSOK)
                     }
-
                     Method (_QF2, 0, NotSerialized)
                     {
                         Store (Zero, GSOK)
                     }
-
                     Method (_QF3, 0, NotSerialized)
                     {
                         Acquire (ECMX, 0xFFFF)
                         Store (0xC5, SSMP)
                         Release (ECMX)
                     }
-
                     OperationRegion (IOS0, SystemIO, 0x0500, 0x35)
                     Field (IOS0, ByteAcc, NoLock, Preserve)
                     {
@@ -4518,23 +4109,19 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         GP60,   1, 
                         GP61,   1
                     }
-
                     Method (_Q20, 0, NotSerialized)
                     {
                     }
-
                     Method (_Q27, 0, NotSerialized)
                     {
                         If (ECAV ())
                         {
                             Store (OCRT, Local2)
                         }
-
                         If (ECAV ())
                         {
                             Store (CPUT, Local1)
                         }
-
                         If (LEqual (LGS4, Zero))
                         {
                             If (LEqual (LGS5, Zero))
@@ -4551,15 +4138,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Method (_Q46, 0, NotSerialized)
                     {
                     }
-
                     Method (_Q47, 0, NotSerialized)
                     {
                     }
-
                     Method (_Q0A, 0, NotSerialized)
                     {
                         Store (0x0A, ^^^^WMID.WEI1)
@@ -4567,7 +4151,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (COGS (), Local0)
                         }
-
                         If (And (DerefOf (Index (Local0, Zero)), 0x02))
                         {
                             Store (One, ^^^^WMID.WED1)
@@ -4602,12 +4185,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 }
                             }
                         }
-
                         Notify (WMID, 0x80)
                         Sleep (0xC8)
                         Notify (\_TZ.PGTZ, 0x81)
                     }
-
                     Method (_Q0B, 0, NotSerialized)
                     {
                         Store (0x0B, ^^^^WMID.WEI1)
@@ -4615,7 +4196,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (COGS (), Local0)
                         }
-
                         If (And (DerefOf (Index (Local0, Zero)), 0x08))
                         {
                             Store (One, ^^^^WMID.WED1)
@@ -4624,33 +4204,27 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Zero, ^^^^WMID.WED1)
                         }
-
                         Notify (WMID, 0x80)
                     }
-
                     Method (_Q70, 0, NotSerialized)
                     {
                         Sleep (0xC8)
                         Notify (LID0, 0x80)
                         ^^^ACEL.ADJT ()
                     }
-
                     Method (_Q80, 0, NotSerialized)
                     {
                         If (LLess (\_PR.CPU0._PPC, Subtract (SizeOf (\_PR.CPU0._PSS), One)))
                         {
                             Increment (\_PR.CPU0._PPC)
                         }
-
                         PNOT ()
                     }
-
                     Method (_Q81, 0, NotSerialized)
                     {
                         Store (Zero, \_PR.CPU0._PPC)
                         PNOT ()
                     }
-
                     Method (_Q82, 0, NotSerialized)
                     {
                         Store (One, \_TZ.PGTZ.PDS4)
@@ -4658,29 +4232,24 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Sleep (0x05DC)
                         Notify (\_TZ.PGTZ, 0x81)
                     }
-
                     Name (WLLO, Zero)
                     Mutex (WLMU, 0x00)
                     Method (_Q84, 0, NotSerialized)
                     {
                         CSED ()
                     }
-
                     Method (_Q85, 0, NotSerialized)
                     {
                         CSED ()
                     }
-
                     Method (_Q86, 0, NotSerialized)
                     {
                         CSED ()
                     }
-
                     Method (_Q87, 0, NotSerialized)
                     {
                         CSED ()
                     }
-
                     Method (CSED, 0, Serialized)
                     {
                         If (LOr (LAnd (LEqual (And (GL02, 0x40), 0x40), LEqual (
@@ -4691,7 +4260,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {
                                 Return (Zero)
                             }
-
                             Acquire (WLMU, 0xFFFF)
                             Store (One, WLLO)
                             Store (Zero, Local0)
@@ -4702,7 +4270,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     Or (Local0, One, Local0)
                                 }
                             }
-
                             If (LNotEqual (BTVD, Zero))
                             {
                                 Sleep (0x0A)
@@ -4711,7 +4278,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     Or (Local0, 0x02, Local0)
                                 }
                             }
-
                             If (Local0)
                             {
                                 SWED (One)
@@ -4720,12 +4286,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {
                                 SWED (Zero)
                             }
-
                             Store (Zero, WLLO)
                             Release (WLMU)
                         }
                     }
-
                     Method (GNUM, 0, Serialized)
                     {
                         Store (0x87, CMD1)
@@ -4736,7 +4300,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (CMD1, Local0)
                         Return (Local0)
                     }
-
                     Method (GCAP, 0, Serialized)
                     {
                         Store (0x87, CMD1)
@@ -4747,7 +4310,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (CMD1, Local0)
                         Return (Local0)
                     }
-
                     Method (LCDB, 0, NotSerialized)
                     {
                         If (BLTS)
@@ -4758,10 +4320,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (0x8A, CMD1)
                         }
-
                         Store (0xB6, CMCM)
                     }
-
                     Name (BRLV, 0x0F)
                     Method (GTBR, 0, NotSerialized)
                     {
@@ -4770,19 +4330,16 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         ShiftRight (Local1, 0x04, Local2)
                         Store (Local2, BRLV)
                     }
-
                     Method (STBR, 0, NotSerialized)
                     {
                         If (LGreater (BRLV, 0x0F))
                         {
                             Store (0x0F, BRLV)
                         }
-
                         If (LLess (BRLV, Zero))
                         {
                             Store (Zero, BRLV)
                         }
-
                         ShiftLeft (BRLV, 0x04, Local0)
                         Or (Local0, 0x0F, Local0)
                         Store (0x86, CMD1)
@@ -4790,7 +4347,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (Local0, CMD3)
                         Store (0xB6, CMCM)
                     }
-
                     Name (RBFG, Zero)
                     Name (BLED, One)
                     Name (WLED, One)
@@ -4805,7 +4361,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Sleep (One)
                         }
-
                         Store (0x000FFFFF, Local0)
                         While (Local0)
                         {
@@ -4819,7 +4374,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Store (Zero, Local0)
                             }
                         }
-
                         While (I25D) {}
                         Store (0x87, E25D)
                         While (I25D) {}
@@ -4833,7 +4387,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (0x76, E25C)
                         }
-
                         While (I25D) {}
                         Store (0x000FFFFF, Local0)
                         While (Local0)
@@ -4844,7 +4397,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Store (Zero, Local0)
                             }
                         }
-
                         Store (E25C, Local0)
                         Release (ECMX)
                         If (And (Local0, One))
@@ -4856,7 +4408,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Return (One)
                         }
                     }
-
                     Method (STWL, 1, NotSerialized)
                     {
                         Acquire (ECMX, 0xFFFF)
@@ -4864,7 +4415,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Sleep (One)
                         }
-
                         While (I25D) {}
                         Store (0x87, E25D)
                         If (Arg0)
@@ -4881,11 +4431,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             While (I25D) {}
                             Store (0x76, E25C)
                         }
-
                         While (I25D) {}
                         Release (ECMX)
                     }
-
                     Method (SWED, 1, Serialized)
                     {
                         Acquire (ECMX, 0xFFFF)
@@ -4893,7 +4441,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Sleep (One)
                         }
-
                         While (I25D) {}
                         Store (0x87, E25D)
                         If (Arg0)
@@ -4924,19 +4471,15 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             While (I25D) {}
                             Store (0x20, E25C)
                         }
-
                         While (I25D) {}
                         Release (ECMX)
                     }
-
                     Method (RD3G, 0, NotSerialized)
                     {
                     }
-
                     Method (ST3G, 0, NotSerialized)
                     {
                     }
-
                     Method (RDBT, 1, Serialized)
                     {
                         Acquire (ECMX, 0xFFFF)
@@ -4944,7 +4487,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Sleep (One)
                         }
-
                         Store (0x000FFFFF, Local0)
                         While (Local0)
                         {
@@ -4958,7 +4500,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Store (Zero, Local0)
                             }
                         }
-
                         While (I25D) {}
                         Store (0x87, E25D)
                         While (I25D) {}
@@ -4972,7 +4513,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (0x03, E25C)
                         }
-
                         While (I25D) {}
                         Store (0x000FFFFF, Local0)
                         While (Local0)
@@ -4983,7 +4523,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Store (Zero, Local0)
                             }
                         }
-
                         Store (E25C, Local0)
                         Release (ECMX)
                         If (Arg0)
@@ -5002,7 +4541,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Return (Local0)
                         }
                     }
-
                     Method (STBT, 1, Serialized)
                     {
                         Acquire (ECMX, 0xFFFF)
@@ -5010,7 +4548,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Sleep (One)
                         }
-
                         While (I25D) {}
                         Store (0x87, E25D)
                         If (Arg0)
@@ -5027,15 +4564,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             While (I25D) {}
                             Store (0x03, E25C)
                         }
-
                         While (I25D) {}
                         Release (ECMX)
                     }
-
                     Method (SBED, 0, NotSerialized)
                     {
                     }
-
                     Method (RRST, 0, NotSerialized)
                     {
                         If (_OSI ("Windows 2012"))
@@ -5050,7 +4584,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {
                                 STWL (Zero)
                             }
-
                             If (LNotEqual (BTVD, Zero))
                             {
                                 Or (Local1, 0x02, Local1)
@@ -5077,7 +4610,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     STWL (Zero)
                                 }
                             }
-
                             If (LNotEqual (BTVD, Zero))
                             {
                                 If (And (Local0, 0x02))
@@ -5091,7 +4623,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 }
                             }
                         }
-
                         If (LEqual (And (GL08, 0x20), Zero))
                         {
                             If (LEqual (Local1, Zero))
@@ -5104,7 +4635,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Name (SMTA, Zero)
                     Method (GSMA, 0, NotSerialized)
                     {
@@ -5119,7 +4649,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {
                                 Store (Zero, \_PR.CPU0._PPC)
                             }
-
                             Store (0x03, ^^^^WMID.WEI1)
                             Store (Zero, ^^^^WMID.WED1)
                             Notify (WMID, 0x80)
@@ -5129,7 +4658,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (Zero, \_PR.CPU0._PPC)
                         }
                     }
-
                     Name (CSDM, Zero)
                     Name (CSMM, Zero)
                     Name (MOTS, Zero)
@@ -5144,7 +4672,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Sleep (One)
                         }
-
                         Store (0x000FFFFF, Local0)
                         While (Local0)
                         {
@@ -5158,7 +4685,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Store (Zero, Local0)
                             }
                         }
-
                         While (I25D) {}
                         Store (0xB5, E25D)
                         While (I25D) {}
@@ -5173,7 +4699,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Store (Zero, Local0)
                             }
                         }
-
                         Store (E25C, Index (Local2, Zero))
                         Store (0x000FFFFF, Local0)
                         While (Local0)
@@ -5184,7 +4709,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Store (Zero, Local0)
                             }
                         }
-
                         Store (E25C, Index (Local2, One))
                         Store (0x000FFFFF, Local0)
                         While (Local0)
@@ -5195,12 +4719,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Store (Zero, Local0)
                             }
                         }
-
                         Store (E25C, Index (Local2, 0x02))
                         Release (ECMX)
                         Return (Local2)
                     }
-
                     Method (COSS, 2, NotSerialized)
                     {
                         Acquire (ECMX, 0xFFFF)
@@ -5208,7 +4730,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Sleep (One)
                         }
-
                         While (I25D) {}
                         Store (0xB6, E25D)
                         While (I25D) {}
@@ -5222,7 +4743,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         While (I25D) {}
                         Release (ECMX)
                     }
-
                     Method (FANC, 1, NotSerialized)
                     {
                         Acquire (ECMX, 0xFFFF)
@@ -5252,11 +4772,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             While (IB66) {}
                             Store (Zero, KP62)
                         }
-
                         Release (ECMX)
                     }
                 }
-
                 Scope (\_SB)
                 {
                     Device (PWRB)
@@ -5268,7 +4786,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         }
                     }
                 }
-
                 Device (DMAC)
                 {
                     Name (_HID, EisaId ("PNP0200"))
@@ -5302,7 +4819,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {4}
                     })
                 }
-
                 Device (FWHD)
                 {
                     Name (_HID, EisaId ("INT0800"))
@@ -5314,7 +4830,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             )
                     })
                 }
-
                 Device (HPET)
                 {
                     Name (_HID, EisaId ("PNP0103"))
@@ -5342,10 +4857,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Return (0x0B)
                             }
                         }
-
                         Return (Zero)
                     }
-
                     Method (_CRS, 0, Serialized)
                     {
                         If (HPAE)
@@ -5355,22 +4868,18 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {
                                 Store (0xFED01000, HPT0)
                             }
-
                             If (LEqual (HPAS, 0x02))
                             {
                                 Store (0xFED02000, HPT0)
                             }
-
                             If (LEqual (HPAS, 0x03))
                             {
                                 Store (0xFED03000, HPT0)
                             }
                         }
-
                         Return (BUF0)
                     }
                 }
-
                 Device (IPIC)
                 {
                     Name (_HID, EisaId ("PNP0000"))
@@ -5482,7 +4991,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {2}
                     })
                 }
-
                 Device (MATH)
                 {
                     Name (_HID, EisaId ("PNP0C04"))
@@ -5498,7 +5006,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {13}
                     })
                 }
-
                 Device (LDRC)
                 {
                     Name (_HID, EisaId ("PNP0C02"))
@@ -5615,7 +5122,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             )
                     })
                 }
-
                 Device (RTC)
                 {
                     Name (_HID, EisaId ("PNP0B00"))
@@ -5631,7 +5137,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {8}
                     })
                 }
-
                 Device (TIMR)
                 {
                     Name (_HID, EisaId ("PNP0100"))
@@ -5653,7 +5158,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {0}
                     })
                 }
-
                 Device (CWDT)
                 {
                     Name (_HID, EisaId ("INT3F0D"))
@@ -5678,13 +5182,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Return (Zero)
                         }
                     }
-
                     Method (_CRS, 0, Serialized)
                     {
                         Return (BUF0)
                     }
                 }
-
                 OperationRegion (PKBS, SystemIO, 0x60, 0x05)
                 Field (PKBS, ByteAcc, Lock, Preserve)
                 {
@@ -5694,7 +5196,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Offset (0x04), 
                     PKBC,   8
                 }
-
                 Device (PS2K)
                 {
                     Name (_HID, EisaId ("HPQ8001"))
@@ -5707,7 +5208,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Return (0x0F)
                     }
-
                     Name (_CRS, ResourceTemplate ()
                     {
                         IO (Decode16,
@@ -5743,7 +5243,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         EndDependentFn ()
                     })
                 }
-
                 Device (PS2M)
                 {
                     Name (_HID, EisaId ("SYN1E62"))
@@ -5758,7 +5257,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Return (0x0F)
                     }
-
                     Name (_CRS, ResourceTemplate ()
                     {
                         IRQ (Edge, ActiveHigh, Exclusive, )
@@ -5775,7 +5273,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     })
                 }
             }
-
             Device (ACEL)
             {
                 Name (_HID, EisaId ("HPQ0004"))
@@ -5801,14 +5298,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {
                                 Store (Zero, Local0)
                             }
-
                             Store (Local0, DVPN)
                         }
                     }
-
                     Return (DVPN)
                 }
-
                 Method (_INI, 0, Serialized)
                 {
                     If (_STA ())
@@ -5816,7 +5310,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         ADJT ()
                     }
                 }
-
                 Method (ADJT, 0, Serialized)
                 {
                     If (_STA ())
@@ -5828,7 +5321,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {
                                 Store (One, CNST)
                             }
-
                             Release (GSMX)
                         }
                         Else
@@ -5838,12 +5330,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             {
                                 Store (Zero, CNST)
                             }
-
                             Release (GSMX)
                         }
                     }
                 }
-
                 Method (CLRI, 0, Serialized)
                 {
                     Store (Zero, Local0)
@@ -5860,10 +5350,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Return (Local0)
                 }
-
                 Method (ALRD, 1, NotSerialized)
                 {
                     Store (Zero, Local0)
@@ -5871,10 +5359,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Store (^^LPCB.EC0.ACCR (Arg0), Local0)
                     }
-
                     Return (Local0)
                 }
-
                 Name (SIMI, Zero)
                 Method (ALWR, 2, NotSerialized)
                 {
@@ -5893,7 +5379,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Store (One, SIMI)
                             }
                         }
-
                         ^^LPCB.EC0.ACCW (Arg0, Arg1)
                         If (LAnd (LEqual (^^LID0._LID (), Zero), LAnd (LAnd (LEqual (Arg0, 0x32), 
                             LNotEqual (Arg1, 0xFF)), LEqual (SIMI, One))))
@@ -5905,20 +5390,16 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 ^^LPCB.EC0.ACCW (0x25, 0x02)
                                 ^^LPCB.EC0.ACCW (0x22, 0x20)
                             }
-
                             Store (Zero, SIMI)
                         }
-
                         Release (GSMX)
                     }
                 }
-
                 Method (ALID, 1, NotSerialized)
                 {
                     Store (^^LID0._LID (), Local0)
                     Return (Local0)
                 }
-
                 Method (ALED, 1, NotSerialized)
                 {
                     If (Arg0)
@@ -5930,7 +5411,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (One, GP24)
                     }
                 }
-
                 Method (ADSN, 0, NotSerialized)
                 {
                     Store (Zero, Local0)
@@ -5938,7 +5418,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 }
             }
         }
-
         Scope (\_SB)
         {
             Name (ETYP, Buffer (One) {})
@@ -6073,10 +5552,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Store (HWRC, RTCC)
                     }
-
                     Return (Zero)
                 }
-
                 Method (RDCF, 2, Serialized)
                 {
                     Name (_T_0, Zero)
@@ -6268,11 +5745,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 }
                             }
                         }
-
                         Break
                     }
                 }
-
                 Method (WRCF, 2, Serialized)
                 {
                     Name (_T_0, Zero)
@@ -6434,11 +5909,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 }
                             }
                         }
-
                         Break
                     }
                 }
-
                 Method (GFRT, 0, NotSerialized)
                 {
                     Store (Zero, Local0)
@@ -6465,7 +5938,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (0x02, Index (DerefOf (Index (Local3, 0x02)), 0x03))
                     Return (Local3)
                 }
-
                 Method (GWSD, 0, NotSerialized)
                 {
                     Store (Package (0x03)
@@ -6485,7 +5957,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (HWQ1, BUFS)
                     Return (Local0)
                 }
-
                 Method (SWSD, 3, NotSerialized)
                 {
                     Store (Buffer (0x80) {}, Local0)
@@ -6503,7 +5974,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero
                     })
                 }
-
                 Method (GDLC, 0, NotSerialized)
                 {
                     Store (Package (0x03)
@@ -6523,7 +5993,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (HWD1, BUFS)
                     Return (Local0)
                 }
-
                 Method (SDLC, 1, NotSerialized)
                 {
                     Store (Buffer (0x80) {}, Local0)
@@ -6537,7 +6006,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero
                     })
                 }
-
                 Method (GBUS, 0, NotSerialized)
                 {
                     Store (Package (0x03)
@@ -6557,7 +6025,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (HWD1, BUFS)
                     Return (Local0)
                 }
-
                 Method (SBUS, 1, NotSerialized)
                 {
                     Store (Buffer (0x80) {}, Local0)
@@ -6571,7 +6038,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero
                     })
                 }
-
                 Method (GTDC, 1, NotSerialized)
                 {
                     Store (Buffer (0x80) {}, HWBF)
@@ -6587,13 +6053,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (One, Index (DerefOf (Index (Local0, 0x02)), Zero))
                         Store (^^PCI0.LPCB.EC0.CPUT, Index (DerefOf (Index (Local0, 0x02)), One))
                     }
-
                     If (LEqual (Arg0, One))
                     {
                         Store (One, Index (DerefOf (Index (Local0, 0x02)), Zero))
                         Store (^^PCI0.LPCB.EC0.GPUT, Index (DerefOf (Index (Local0, 0x02)), One))
                     }
-
                     If (LEqual (Arg0, 0x02)) {}
                     If (LEqual (Arg0, 0x03))
                     {
@@ -6604,13 +6068,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (One, Index (DerefOf (Index (Local0, 0x02)), Zero))
                         Store (Local2, Index (DerefOf (Index (Local0, 0x02)), One))
                     }
-
                     If (LEqual (Arg0, 0x04))
                     {
                         Store (One, Index (DerefOf (Index (Local0, 0x02)), Zero))
                         Store (^^PCI0.LPCB.EC0.B0TM, Index (DerefOf (Index (Local0, 0x02)), One))
                     }
-
                     If (LEqual (Arg0, 0x05)) {}
                     If (LEqual (Arg0, 0x06))
                     {
@@ -6619,7 +6081,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Sleep (One)
                         }
-
                         Store (0x000FFFFF, Local1)
                         While (Local1)
                         {
@@ -6634,7 +6095,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Store (Zero, Local1)
                             }
                         }
-
                         While (^^PCI0.LPCB.I25D) {}
                         Store (0x87, ^^PCI0.LPCB.E25D)
                         While (^^PCI0.LPCB.I25D) {}
@@ -6651,31 +6111,26 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Store (Zero, Local1)
                             }
                         }
-
                         Store (^^PCI0.LPCB.E25C, Local2)
                         Release (^^PCI0.LPCB.EC0.ECMX)
                         Store (One, Index (DerefOf (Index (Local0, 0x02)), Zero))
                         Store (Local2, Index (DerefOf (Index (Local0, 0x02)), One))
                     }
-
                     If (LEqual (Arg0, 0x10))
                     {
                         Store (One, Index (DerefOf (Index (Local0, 0x02)), Zero))
                         Store (WCPF, Index (DerefOf (Index (Local0, 0x02)), One))
                     }
-
                     If (LEqual (Arg0, 0x11))
                     {
                         Store (One, Index (DerefOf (Index (Local0, 0x02)), Zero))
                         Store (WGPF, Index (DerefOf (Index (Local0, 0x02)), One))
                     }
-
                     If (LEqual (Arg0, 0x13))
                     {
                         Store (One, Index (DerefOf (Index (Local0, 0x02)), Zero))
                         Store (WFPF, Index (DerefOf (Index (Local0, 0x02)), One))
                     }
-
                     If (LEqual (Arg0, 0x14))
                     {
                         If (^^PCI0.LPCB.EC0.BT0A)
@@ -6684,26 +6139,22 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (WBPF, Index (DerefOf (Index (Local0, 0x02)), One))
                         }
                     }
-
                     If (LEqual (Arg0, 0x20))
                     {
                         Store (One, Index (DerefOf (Index (Local0, 0x02)), Zero))
                         Store (WCTS, Index (DerefOf (Index (Local0, 0x02)), One))
                     }
-
                     If (LEqual (Arg0, 0x21))
                     {
                         Store (One, Index (DerefOf (Index (Local0, 0x02)), Zero))
                         Store (WGTS, Index (DerefOf (Index (Local0, 0x02)), One))
                     }
-
                     If (LEqual (Arg0, 0x22)) {}
                     If (LEqual (Arg0, 0x23))
                     {
                         Store (One, Index (DerefOf (Index (Local0, 0x02)), Zero))
                         Store (WFTS, Index (DerefOf (Index (Local0, 0x02)), One))
                     }
-
                     If (LEqual (Arg0, 0x24))
                     {
                         If (^^PCI0.LPCB.EC0.BT0A)
@@ -6712,15 +6163,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (WBTS, Index (DerefOf (Index (Local0, 0x02)), One))
                         }
                     }
-
                     If (LEqual (Arg0, 0xAA))
                     {
                         Store (TMLS, Index (DerefOf (Index (Local0, 0x02)), Zero))
                     }
-
                     Return (Local0)
                 }
-
                 Method (STDC, 1, NotSerialized)
                 {
                     CreateByteField (Arg0, Zero, SUBC)
@@ -6737,30 +6185,25 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Zero
                         })
                     }
-
                     If (LEqual (SUBC, 0x10))
                     {
                         Store (WTE2, WCPF)
                         Store (One, SUCC)
                     }
-
                     If (LEqual (SUBC, 0x11))
                     {
                         Store (WTE2, WGPF)
                         Store (One, SUCC)
                     }
-
                     If (LEqual (SUBC, 0x12))
                     {
                         Store (One, SUCC)
                     }
-
                     If (LEqual (SUBC, 0x13))
                     {
                         Store (WTE2, WFPF)
                         Store (One, SUCC)
                     }
-
                     If (LEqual (SUBC, 0x14))
                     {
                         If (^^PCI0.LPCB.EC0.BT0A)
@@ -6773,12 +6216,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (Zero, SUCC)
                         }
                     }
-
                     If (LEqual (SUBC, 0x15))
                     {
                         Store (One, SUCC)
                     }
-
                     If (LEqual (SUBC, 0x20))
                     {
                         Store (WTE2, WCTS)
@@ -6793,19 +6234,16 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             ^^PCI0.LPCB.EC0.EFAN (0x14)
                         }
                     }
-
                     If (LEqual (SUBC, 0x21))
                     {
                         Store (WTE2, WGTS)
                         Store (One, TMLS)
                         Store (One, SUCC)
                     }
-
                     If (LEqual (SUBC, 0x22))
                     {
                         Store (One, SUCC)
                     }
-
                     If (LEqual (SUBC, 0x23))
                     {
                         Store (WTE2, WFTS)
@@ -6813,7 +6251,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (One, SUCC)
                         ^^PCI0.LPCB.EC0.EFAN (WTE2)
                     }
-
                     If (LEqual (SUBC, 0x24))
                     {
                         If (^^PCI0.LPCB.EC0.BT0A)
@@ -6827,7 +6264,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (Zero, SUCC)
                         }
                     }
-
                     If (LEqual (SUBC, 0xAA))
                     {
                         Store (Zero, TMLS)
@@ -6837,7 +6273,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (0xFF, WBTS)
                         Store (One, SUCC)
                     }
-
                     Store (Buffer (0x80) {}, Local0)
                     Store (Arg0, Local0)
                     Store (Local0, HWBF)
@@ -6859,7 +6294,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         })
                     }
                 }
-
                 Method (GFCC, 0, NotSerialized)
                 {
                     Store (Package (0x03)
@@ -6879,7 +6313,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (HWD1, BUFS)
                     Return (Local0)
                 }
-
                 Method (SFCC, 1, NotSerialized)
                 {
                     Store (Buffer (0x80) {}, Local0)
@@ -6893,7 +6326,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero
                     })
                 }
-
                 Method (GPES, 0, NotSerialized)
                 {
                     Store (Package (0x03)
@@ -6913,7 +6345,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (HWD1, BUFS)
                     Return (Local0)
                 }
-
                 Method (SPES, 1, NotSerialized)
                 {
                     Store (Buffer (0x80) {}, Local0)
@@ -6927,7 +6358,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero
                     })
                 }
-
                 Method (CSTA, 0, NotSerialized)
                 {
                     Store (Package (0x03)
@@ -6951,10 +6381,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (And (CDAT, 0xFF), Index (DerefOf (Index (Local0, 0x02
                             )), Zero))
                     }
-
                     Return (Local0)
                 }
-
                 Method (CACT, 1, NotSerialized)
                 {
                     Store (Package (0x02)
@@ -6973,11 +6401,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Store (IAOR, Index (Local0, Zero))
                     }
-
                     Store (Zero, CDAT)
                     Return (Local0)
                 }
-
                 Method (CDAC, 1, NotSerialized)
                 {
                     Store (Package (0x02)
@@ -6996,11 +6422,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Store (IAOR, Index (Local0, Zero))
                     }
-
                     Store (Zero, CDAT)
                     Return (Local0)
                 }
-
                 Method (GPST, 0, NotSerialized)
                 {
                     Store (Package (0x03)
@@ -7015,7 +6439,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (HWBF, BUFS)
                     Return (Local0)
                 }
-
                 Method (SPST, 1, NotSerialized)
                 {
                     Store (Buffer (0x80) {}, Local0)
@@ -7029,7 +6452,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero
                     })
                 }
-
                 Method (GBCT, 0, NotSerialized)
                 {
                     Store (Package (0x03)
@@ -7044,7 +6466,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (HWBF, BUFS)
                     Return (Local0)
                 }
-
                 Method (SBCT, 1, NotSerialized)
                 {
                     Store (Buffer (0x80) {}, Local0)
@@ -7058,7 +6479,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero
                     })
                 }
-
                 Method (GBST, 0, NotSerialized)
                 {
                     Store (Package (0x03)
@@ -7078,7 +6498,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (HWD1, BUFS)
                     Return (Local0)
                 }
-
                 Method (SBST, 1, NotSerialized)
                 {
                     Store (Buffer (0x04) {}, Local0)
@@ -7092,7 +6511,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero
                     })
                 }
-
                 Method (BBHT, 0, NotSerialized)
                 {
                     Store (Package (0x03)
@@ -7127,14 +6545,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (Zero, ID0B)
                     Return (Local0)
                 }
-
                 Method (GWDI, 0, NotSerialized)
                 {
                     If (LNot (WLAS))
                     {
                         Store (One, WLAS)
                     }
-
                     Store (Package (0x03)
                         {
                             Zero, 
@@ -7152,24 +6568,20 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Increment (Local1)
                     }
-
                     If (LNotEqual (BTVD, Zero))
                     {
                         Increment (Local1)
                     }
-
                     Store (Local1, Index (DerefOf (Index (Local0, 0x02)), 0x06))
                     Store (Zero, Local1)
                     If (LNotEqual (WLVD, Zero))
                     {
                         Increment (Local1)
                     }
-
                     If (LNotEqual (BTVD, Zero))
                     {
                         Increment (Local1)
                     }
-
                     Store (Local1, Index (DerefOf (Index (Local0, 0x02)), 0x07))
                     Store (Zero, Index (DerefOf (Index (Local0, 0x02)), 0x08))
                     Store (Zero, Index (DerefOf (Index (Local0, 0x02)), 0x09))
@@ -7218,17 +6630,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Or (Local1, One, Local1)
                             }
                         }
-
                         If (And (WWST, One))
                         {
                             Or (Local1, 0x02, Local1)
                         }
-
                         If (And (WBST, One))
                         {
                             Or (Local1, 0x08, Local1)
                         }
-
                         Store (Local1, Index (DerefOf (Index (Local0, 0x02)), Add (Multiply (
                             Local2, 0x10), 0x0B)))
                         Store (Zero, Index (DerefOf (Index (Local0, 0x02)), Add (Multiply (
@@ -7240,7 +6649,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (Zero, Index (DerefOf (Index (Local0, 0x02)), Add (Multiply (
                             Local2, 0x10), 0x0F)))
                     }
-
                     If (LNotEqual (BTVD, Zero))
                     {
                         Store (Local2, Index (WDPC, One))
@@ -7277,17 +6685,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Or (Local1, One, Local1)
                             }
                         }
-
                         If (And (WWST, 0x02))
                         {
                             Or (Local1, 0x02, Local1)
                         }
-
                         If (And (WBST, 0x02))
                         {
                             Or (Local1, 0x08, Local1)
                         }
-
                         Store (Local1, Index (DerefOf (Index (Local0, 0x02)), Add (Multiply (
                             Local2, 0x10), 0x0B)))
                         Store (Zero, Index (DerefOf (Index (Local0, 0x02)), Add (Multiply (
@@ -7299,10 +6704,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (Zero, Index (DerefOf (Index (Local0, 0x02)), Add (Multiply (
                             Local2, 0x10), 0x0F)))
                     }
-
                     Return (Local0)
                 }
-
                 Name (WDPC, Package (0x03)
                 {
                     0x0100, 
@@ -7325,7 +6728,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Or (Local1, One, Local1)
                         }
-
                         If (LEqual (Local0, One))
                         {
                             Or (Local1, 0x02, Local1)
@@ -7338,18 +6740,15 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Or (Local1, One, Local1)
                         }
-
                         If (LNotEqual (DerefOf (Index (WDPC, One)), 0x0100))
                         {
                             Or (Local1, 0x02, Local1)
                         }
-
                         If (LEqual (PCN, 0xFF))
                         {
                             Store (Zero, Local2)
                         }
                     }
-
                     If (And (Local1, One))
                     {
                         If (^^PCI0.LPCB.EC0.ECAV ())
@@ -7378,7 +6777,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     And (WWST, 0xFE, WWST)
                                 }
                             }
-
                             If (And (And (WWST, WBST), One))
                             {
                                 ^^PCI0.LPCB.EC0.STWL (One)
@@ -7389,7 +6787,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     If (And (Local1, 0x02))
                     {
                         If (^^PCI0.LPCB.EC0.ECAV ())
@@ -7418,7 +6815,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     And (WWST, 0xFD, WWST)
                                 }
                             }
-
                             If (And (And (WWST, WBST), 0x02))
                             {
                                 ^^PCI0.LPCB.EC0.STBT (One)
@@ -7429,7 +6825,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Store (And (WWST, WBST), WDST)
                     If (LEqual (And (GL08, 0x20), Zero))
                     {
@@ -7443,7 +6838,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     Or (Local0, One, Local0)
                                 }
                             }
-
                             If (LNotEqual (DerefOf (Index (WDPC, One)), 0x0100))
                             {
                                 If (^^PCI0.LPCB.EC0.RDBT (Zero))
@@ -7451,7 +6845,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     Or (Local0, 0x02, Local0)
                                 }
                             }
-
                             If (LEqual (Local0, Zero))
                             {
                                 ^^PCI0.LPCB.EC0.SWED (Zero)
@@ -7462,7 +6855,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Store (0x05, WEI1)
                     Store (Zero, WED1)
                     Notify (WMID, 0x80)
@@ -7472,7 +6864,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero
                     })
                 }
-
                 Method (_WED, 1, NotSerialized)
                 {
                     If (LEqual (Arg0, 0x80))
@@ -7488,7 +6879,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Return (Local0)
                     }
                 }
-
                 Method (BEBA, 0, NotSerialized)
                 {
                     Store (Package (0x03)
@@ -7502,7 +6892,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         }, Local0)
                     Return (Local0)
                 }
-
                 Method (GHKF, 0, Serialized)
                 {
                     Name (_T_0, Zero)
@@ -7547,32 +6936,26 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     {
                                         Or (Local0, One, Local0)
                                     }
-
                                     If (^^PCI0.GFX0.DD02._DGS ())
                                     {
                                         Or (Local1, One, Local1)
                                     }
-
                                     If (LEqual (And (^^PCI0.GFX0.DD01._DCS (), 0x0F), 0x0F))
                                     {
                                         Or (Local0, 0x02, Local0)
                                     }
-
                                     If (^^PCI0.GFX0.DD01._DGS ())
                                     {
                                         Or (Local1, 0x02, Local1)
                                     }
-
                                     If (LEqual (And (^^PCI0.GFX0.DD03._DCS (), 0x0F), 0x0F))
                                     {
                                         Or (Local0, 0x08, Local0)
                                     }
-
                                     If (^^PCI0.GFX0.DD03._DGS ())
                                     {
                                         Or (Local1, 0x08, Local1)
                                     }
-
                                     Store (Local1, Index (DerefOf (Index (Local0, 0x02)), 0x02))
                                     Store (Local0, Index (DerefOf (Index (Local0, 0x02)), 0x03))
                                     Break
@@ -7582,18 +6965,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 }
                             }
                         }
-
                         Break
                     }
-
                     If (LLess (^^PCI0.LPCB.EC0.HKID, 0x03E8))
                     {
                         Store (Zero, ^^PCI0.LPCB.EC0.HKID)
                     }
-
                     Return (Local0)
                 }
-
                 Method (SHKF, 1, Serialized)
                 {
                     Name (_T_0, Zero)
@@ -7638,32 +7017,26 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     {
                                         Or (Local1, One, Local1)
                                     }
-
                                     If (^^PCI0.GFX0.DD02._DGS ())
                                     {
                                         Or (Local2, One, Local2)
                                     }
-
                                     If (LEqual (And (^^PCI0.GFX0.DD01._DCS (), 0x0F), 0x0F))
                                     {
                                         Or (Local1, 0x02, Local1)
                                     }
-
                                     If (^^PCI0.GFX0.DD01._DGS ())
                                     {
                                         Or (Local2, 0x02, Local2)
                                     }
-
                                     If (LEqual (And (^^PCI0.GFX0.DD03._DCS (), 0x0F), 0x0F))
                                     {
                                         Or (Local1, 0x08, Local1)
                                     }
-
                                     If (^^PCI0.GFX0.DD03._DGS ())
                                     {
                                         Or (Local2, 0x08, Local2)
                                     }
-
                                     Store (Local2, Index (DerefOf (Index (Local3, 0x02)), 0x02))
                                     Store (Local1, Index (DerefOf (Index (Local3, 0x02)), 0x03))
                                     ^^PCI0.GFX0.GNOT (One, 0x80)
@@ -7674,13 +7047,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 }
                             }
                         }
-
                         Break
                     }
-
                     Return (Local3)
                 }
-
                 Method (WKHC, 0, NotSerialized)
                 {
                     Store (Package (0x03)
@@ -7700,10 +7070,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Store (Zero, Index (DerefOf (Index (Local0, 0x02)), Zero))
                     }
-
                     Return (Local0)
                 }
-
                 Method (WMIN, 1, NotSerialized)
                 {
                     If (LEqual (Arg0, 0x6E))
@@ -7715,7 +7083,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Zero
                         })
                     }
-
                     If (LEqual (Arg0, Zero))
                     {
                         Store (Zero, ^^PCI0.LPCB.EC0.QLB)
@@ -7725,14 +7092,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Zero
                         })
                     }
-
                     Return (Package (0x02)
                     {
                         0x06, 
                         Zero
                     })
                 }
-
                 Method (WMSA, 0, NotSerialized)
                 {
                     Store (Package (0x03)
@@ -7747,7 +7112,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (^^PCI0.LPCB.EC0.SMTA, Index (DerefOf (Index (Local0, 0x02)), Zero))
                     Return (Local0)
                 }
-
                 Method (WKLB, 0, NotSerialized)
                 {
                     Store (Package (0x03)
@@ -7770,7 +7134,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Index (Local0, 0x02)), One))
                             Store (One, Index (DerefOf (Index (Local0, 0x02)), 0x02))
                         }
-
                         If (LEqual (^^PCI0.LPCB.EC0.HKID, 0x219C))
                         {
                             Store (And (^^PCI0.LPCB.EC0.HKID, 0xFF), Index (DerefOf (Index (Local0, 0x02
@@ -7778,17 +7141,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (ShiftRight (And (^^PCI0.LPCB.EC0.HKID, 0xFF00), 0x08), Index (DerefOf (
                                 Index (Local0, 0x02)), One))
                         }
-
                         Store (Zero, ^^PCI0.LPCB.EC0.HKID)
                     }
                     Else
                     {
                         Store (0x0D, Index (Local0, Zero))
                     }
-
                     Return (Local0)
                 }
-
                 Method (GBCC, 0, NotSerialized)
                 {
                     Store (Package (0x03)
@@ -7807,7 +7167,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (0xFF, Index (DerefOf (Index (Local0, 0x02)), Zero))
                             Return (Local0)
                         }
-
                         Store (^^PCI0.LPCB.EC0.RDMW (BCRH, BCRL), Local1)
                         And (Local1, 0xFFFF, Local1)
                         If (LLessEqual (BCMD, 0x02))
@@ -7840,7 +7199,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                         Zero
                                     })
                                 }
-
                                 Store (0x03, Index (DerefOf (Index (Local0, 0x02)), Zero))
                             }
                             Else
@@ -7867,10 +7225,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Return (Local0)
                 }
-
                 Method (SBCC, 2, Serialized)
                 {
                     Name (_T_0, Zero)
@@ -7884,7 +7240,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Zero
                             })
                         }
-
                         If (LEqual (Arg0, One))
                         {
                             Return (Package (0x02)
@@ -7893,7 +7248,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 Zero
                             })
                         }
-
                         Store (Arg1, BCMD)
                         Store (Zero, ^^PCI0.LPCB.EC0.DIAC)
                         Store (Zero, ^^PCI0.LPCB.EC0.BATP)
@@ -7970,11 +7324,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     }
                                 }
                             }
-
                             Break
                         }
                     }
-
                     Notify (^^PCI0.LPCB.EC0.BAT0, 0x80)
                     Notify (^^PCI0.LPCB.EC0.BAT0, 0x81)
                     Return (Package (0x02)
@@ -7983,7 +7335,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero
                     })
                 }
-
                 Method (GTCS, 0, NotSerialized)
                 {
                     Store (Package (0x03)
@@ -8015,10 +7366,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (Zero, ^^PCI0.LPCB.EC0.MOTS)
                         }
                     }
-
                     Return (Local0)
                 }
-
                 Method (STCS, 1, NotSerialized)
                 {
                     If (^^PCI0.LPCB.EC0.ECAV ())
@@ -8027,7 +7376,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (ShiftRight (And (Arg0, 0x00FF0000), 0x10), ^^PCI0.LPCB.EC0.CSDM)
                         ^^PCI0.LPCB.EC0.COSS (^^PCI0.LPCB.EC0.CSMM, ^^PCI0.LPCB.EC0.CSDM)
                     }
-
                     Sleep (0xC8)
                     Notify (\_TZ.PGTZ, 0x81)
                     If (^^PCI0.LPCB.EC0.ECAV ())
@@ -8060,14 +7408,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Return (Package (0x02)
                     {
                         Zero, 
                         Zero
                     })
                 }
-
                 Method (WHCM, 2, Serialized)
                 {
                     Name (_T_2, Zero)
@@ -8112,10 +7458,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 }
                             }
                         }
-
                         Break
                     }
-
                     Store (Buffer (Add (0x08, Local0)) {}, Local1)
                     CreateDWordField (Local1, Zero, SNOU)
                     CreateDWordField (Local1, 0x04, RTCD)
@@ -8125,7 +7469,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (0x05, RTCD)
                         Return (Local1)
                     }
-
                     Store (DASI, Local5)
                     CreateField (Arg1, Zero, Multiply (Add (Local5, 0x10), 0x08), 
                         DAIN)
@@ -8210,17 +7553,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                                     }
                                                 }
                                             }
-
                                             Break
                                         }
                                     }
                                 }
                             }
-
                             Break
                         }
                     }
-
                     If (LEqual (RTCD, Zero))
                     {
                         Store (DerefOf (Index (Local2, Zero)), RTCD)
@@ -8235,7 +7575,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                         Index (Local1, Add (Local0, 0x08)))
                                     Increment (Local0)
                                 }
-
                                 Store (0x53534150, SNOU)
                             }
                             Else
@@ -8244,10 +7583,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             }
                         }
                     }
-
                     Return (Local1)
                 }
-
                 Name (_HID, EisaId ("PNP0C14"))
                 Name (_UID, Zero)
                 Name (WEI1, Zero)
@@ -8295,7 +7632,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (WHCM (Arg1, Arg2))
                 }
-
                 Name (S001, Buffer (0x32) {})
                 Name (S002, Buffer (0x8C) {})
                 Name (S003, Buffer (0x8C) {})
@@ -8322,7 +7658,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (Zero)
                 }
-
                 Method (WMBA, 3, NotSerialized)
                 {
                     Name (DBUF, Buffer (0x80) {})
@@ -8341,7 +7676,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Add (0x02, Local3, Local3)
                             Increment (Local5)
                         }
-
                         Store (Zero, Index (DBUF, Local5))
                         Store (Zero, Local3)
                         Store (DerefOf (Index (Local0, Local2)), Local4)
@@ -8354,7 +7688,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Add (0x02, Local3, Local3)
                             Increment (Local5)
                         }
-
                         Store (Zero, Index (DBUF, Local5))
                         Store (DBUF, HWBF)
                         Store (0x02, HWRC)
@@ -8376,10 +7709,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Return (HWRC)
                         }
                     }
-
                     Return (One)
                 }
-
                 Method (WQBC, 1, NotSerialized)
                 {
                     Store (Arg0, Local0)
@@ -8469,20 +7800,16 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (Arg0, Index (BERP, 0x06))
                         Return (BERP)
                     }
-
                     Return (HWRC)
                 }
-
                 Method (WQBD, 1, NotSerialized)
                 {
                     Return (One)
                 }
-
                 Method (WQBE, 1, NotSerialized)
                 {
                     Return (One)
                 }
-
                 Method (WQBF, 1, NotSerialized)
                 {
                     Return (Package (0x10)
@@ -8505,19 +7832,15 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Zero
                     })
                 }
-
                 Method (WQBG, 0, NotSerialized)
                 {
                 }
-
                 Method (WQBH, 0, NotSerialized)
                 {
                 }
-
                 Method (WQBI, 0, NotSerialized)
                 {
                 }
-
                 Name (WQAB, Buffer (0x2135)
                 {
                     /* 0000 */    0x46, 0x4F, 0x4D, 0x42, 0x01, 0x00, 0x00, 0x00, 
@@ -9586,7 +8909,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 })
             }
         }
-
         Device (WLBU)
         {
             Name (_HID, EisaId ("HPQ6001"))
@@ -9600,22 +8922,18 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Store (0x0F, Local0)
                     }
-
                     Store (Local0, DSTS)
                 }
-
                 Return (DSTS)
             }
         }
     }
-
     OperationRegion (CMS1, SystemIO, 0x72, 0x02)
     Field (CMS1, ByteAcc, NoLock, Preserve)
     {
         CMSI,   8, 
         CMSD,   8
     }
-
     IndexField (CMSI, CMSD, ByteAcc, NoLock, Preserve)
     {
         WWST,   8, 
@@ -9628,70 +8946,59 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
         HBUC,   8, 
         HBUS,   8
     }
-
     Method (CMSW, 2, NotSerialized)
     {
         Store (Arg0, CMSI)
         Store (Arg1, CMSD)
     }
-
     Mutex (MUTX, 0x00)
     OperationRegion (PRT0, SystemIO, 0x80, 0x04)
     Field (PRT0, DWordAcc, Lock, Preserve)
     {
         P80H,   32
     }
-
     Method (P8XH, 3, Serialized)
     {
         If (LEqual (Arg0, Zero))
         {
             Store (Or (And (P80D, 0xFFFFFF00), Arg1), P80D)
         }
-
         If (LEqual (Arg0, One))
         {
             Store (Or (And (P80D, 0xFFFF00FF), ShiftLeft (Arg1, 0x08)
                 ), P80D)
         }
-
         If (LEqual (Arg0, 0x02))
         {
             Store (Or (And (P80D, 0xFF00FFFF), ShiftLeft (Arg1, 0x10)
                 ), P80D)
         }
-
         If (LEqual (Arg0, 0x03))
         {
             Store (Or (And (P80D, 0x00FFFFFF), ShiftLeft (Arg1, 0x18)
                 ), P80D)
         }
-
         If (LEqual (Arg0, 0x04))
         {
             Store (Or (And (P80D, Zero), Arg1), P80D)
         }
-
         If (LEqual (Arg2, Zero)) {}
         If (LEqual (Arg2, One))
         {
             Store (P80D, P80H)
         }
     }
-
     OperationRegion (SPRT, SystemIO, 0xB2, 0x02)
     Field (SPRT, ByteAcc, Lock, Preserve)
     {
         SSMP,   8, 
         SDMP,   8
     }
-
     Method (_PIC, 1, NotSerialized)
     {
         Store (Arg0, GPIC)
         Store (Arg0, PICM)
     }
-
     Method (_PTS, 1, NotSerialized)
     {
         Store (Zero, P80D)
@@ -9706,20 +9013,17 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 TRAP (TRTD, 0x1E)
             }
         }
-
         If (LEqual (Arg0, 0x04))
         {
             P8XH (0x04, 0x54, Zero)
             P8XH (0x04, 0x54, One)
             CMSW (0x60, 0x60)
         }
-
         If (LEqual (Arg0, 0x05))
         {
             P8XH (0x04, 0x55, Zero)
             P8XH (0x04, 0x55, One)
         }
-
         If (LEqual (DBGS, Zero)) {}
         If (LOr (LOr (LEqual (Arg0, 0x03), LEqual (Arg0, 0x04)), LEqual (
             Arg0, 0x05)))
@@ -9730,7 +9034,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             }
         }
     }
-
     Method (_WAK, 1, Serialized)
     {
         Store (0xC4, SSMP)
@@ -9744,13 +9047,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             {
                 \_SB.PCI0.NHPG ()
             }
-
             If (And (OSCC, 0x04))
             {
                 \_SB.PCI0.NPME ()
             }
         }
-
         If (LEqual (Arg0, 0x03))
         {
             P8XH (0x04, 0xE3, Zero)
@@ -9758,7 +9059,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             Store (0x70, SSMP)
             If (LEqual (Zero, ACTT)) {}
         }
-
         If (LOr (LEqual (Arg0, 0x03), LEqual (Arg0, 0x04)))
         {
             If (\_SB.PCI0.LPCB.EC0.ECAV ())
@@ -9773,12 +9073,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     TURB (Zero)
                 }
             }
-
             If (LAnd (DTSE, LGreater (TCNT, One)))
             {
                 TRAP (TRTD, 0x14)
             }
-
             If (LEqual (OSYS, 0x07D2))
             {
                 If (And (CFGD, One))
@@ -9799,38 +9097,31 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     }
                 }
             }
-
             \_SB.PCI0.ACEL._INI ()
             If (LEqual (RP1D, Zero))
             {
                 Notify (\_SB.PCI0.RP01, Zero)
             }
-
             If (LEqual (RP2D, Zero))
             {
                 Notify (\_SB.PCI0.RP02, Zero)
             }
-
             If (LEqual (RP3D, Zero))
             {
                 Notify (\_SB.PCI0.RP03, Zero)
             }
-
             If (LEqual (RP4D, Zero))
             {
                 Notify (\_SB.PCI0.RP04, Zero)
             }
-
             If (LEqual (RP5D, Zero))
             {
                 Notify (\_SB.PCI0.RP05, Zero)
             }
-
             If (LEqual (RP6D, Zero))
             {
                 Notify (\_SB.PCI0.RP06, Zero)
             }
-
             If (LEqual (RP7D, Zero))
             {
                 If (LEqual (DSTS, Zero))
@@ -9838,7 +9129,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Notify (\_SB.PCI0.RP07, Zero)
                 }
             }
-
             If (LEqual (RP8D, Zero))
             {
                 If (LEqual (DSTS, Zero))
@@ -9847,31 +9137,26 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 }
             }
         }
-
         If (LOr (LEqual (Arg0, 0x03), LEqual (Arg0, 0x04)))
         {
             \_SB.PCI0.XHC.XWAK ()
         }
-
         If (LEqual (Arg0, 0x04))
         {
             P8XH (0x04, 0xE4, Zero)
             P8XH (0x04, 0xE4, One)
         }
-
         If (LEqual (Arg0, 0x05))
         {
             P8XH (0x04, 0xE5, Zero)
             P8XH (0x04, 0xE5, One)
         }
-
         Return (Package (0x02)
         {
             Zero, 
             Zero
         })
     }
-
     Method (GETB, 3, Serialized)
     {
         Multiply (Arg0, 0x08, Local0)
@@ -9879,7 +9164,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
         CreateField (Arg2, Local0, Local1, TBF3)
         Return (TBF3)
     }
-
     Method (PNOT, 0, Serialized)
     {
         If (LGreater (TCNT, One))
@@ -9893,7 +9177,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Notify (\_PR.CPU0, 0x81)
                 }
             }
-
             If (And (PDC1, 0x08))
             {
                 Notify (\_PR.CPU1, 0x80)
@@ -9903,7 +9186,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Notify (\_PR.CPU1, 0x81)
                 }
             }
-
             If (And (PDC2, 0x08))
             {
                 Notify (\_PR.CPU2, 0x80)
@@ -9913,7 +9195,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Notify (\_PR.CPU2, 0x81)
                 }
             }
-
             If (And (PDC3, 0x08))
             {
                 Notify (\_PR.CPU3, 0x80)
@@ -9923,7 +9204,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Notify (\_PR.CPU3, 0x81)
                 }
             }
-
             If (And (PDC4, 0x08))
             {
                 Notify (\_PR.CPU4, 0x80)
@@ -9933,7 +9213,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Notify (\_PR.CPU4, 0x81)
                 }
             }
-
             If (And (PDC5, 0x08))
             {
                 Notify (\_PR.CPU5, 0x80)
@@ -9943,7 +9222,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Notify (\_PR.CPU5, 0x81)
                 }
             }
-
             If (And (PDC6, 0x08))
             {
                 Notify (\_PR.CPU6, 0x80)
@@ -9953,7 +9231,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Notify (\_PR.CPU6, 0x81)
                 }
             }
-
             If (And (PDC7, 0x08))
             {
                 Notify (\_PR.CPU7, 0x80)
@@ -9971,7 +9248,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             Notify (\_PR.CPU0, 0x81)
         }
     }
-
     Method (TRAP, 2, Serialized)
     {
         Store (Arg1, SMIF)
@@ -9979,22 +9255,18 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
         {
             Store (Zero, TRP0)
         }
-
         If (LEqual (Arg0, TRTD))
         {
             Store (Arg1, DTSF)
             Store (Zero, TRPD)
             Return (DTSF)
         }
-
         If (LEqual (Arg0, TRTI))
         {
             Store (Zero, TRPH)
         }
-
         Return (SMIF)
     }
-
     Method (TURB, 1, Serialized)
     {
         If (Arg0)
@@ -10005,7 +9277,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
         {
             Store (Zero, SDMP)
         }
-
         Store (0xC6, SSMP)
         If (LEqual (Arg0, Zero))
         {
@@ -10015,7 +9286,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             }
         }
     }
-
     Scope (_SB.PCI0)
     {
         Method (_INI, 0, NotSerialized)
@@ -10028,39 +9298,32 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Store (0x07D1, OSYS)
                 }
-
                 If (_OSI ("Windows 2001 SP1"))
                 {
                     Store (0x07D1, OSYS)
                 }
-
                 If (_OSI ("Windows 2001 SP2"))
                 {
                     Store (0x07D2, OSYS)
                 }
-
                 If (_OSI ("Windows 2001.1"))
                 {
                     Store (0x07D3, OSYS)
                 }
-
                 If (_OSI ("Windows 2006"))
                 {
                     Store (0x07D6, OSYS)
                 }
-
                 If (_OSI ("Windows 2009"))
                 {
                     Store (0x07D9, OSYS)
                 }
-
                 If (_OSI ("Windows 2012"))
                 {
                     Store (0x07DC, OSYS)
                 }
             }
         }
-
         Method (NHPG, 0, Serialized)
         {
             Store (Zero, ^RP01.HPEX)
@@ -10072,7 +9335,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             Store (One, ^RP03.HPSX)
             Store (One, ^RP04.HPSX)
         }
-
         Method (NPME, 0, Serialized)
         {
             Store (Zero, ^RP01.PMEX)
@@ -10093,24 +9355,37 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             Store (One, ^RP08.PMSX)
         }
     }
-
     Scope (\)
     {
         Name (PICM, Zero)
     }
-
     Scope (_PR)
     {
-        Processor (CPU0, 0x01, 0x00000410, 0x06) {}
-        Processor (CPU1, 0x02, 0x00000410, 0x06) {}
-        Processor (CPU2, 0x03, 0x00000410, 0x06) {}
-        Processor (CPU3, 0x04, 0x00000410, 0x06) {}
-        Processor (CPU4, 0x05, 0x00000410, 0x06) {}
-        Processor (CPU5, 0x06, 0x00000410, 0x06) {}
-        Processor (CPU6, 0x07, 0x00000410, 0x06) {}
-        Processor (CPU7, 0x08, 0x00000410, 0x06) {}
+        Processor (CPU0, 0x01, 0x00000410, 0x06)
+        {
+        }
+        Processor (CPU1, 0x02, 0x00000410, 0x06)
+        {
+        }
+        Processor (CPU2, 0x03, 0x00000410, 0x06)
+        {
+        }
+        Processor (CPU3, 0x04, 0x00000410, 0x06)
+        {
+        }
+        Processor (CPU4, 0x05, 0x00000410, 0x06)
+        {
+        }
+        Processor (CPU5, 0x06, 0x00000410, 0x06)
+        {
+        }
+        Processor (CPU6, 0x07, 0x00000410, 0x06)
+        {
+        }
+        Processor (CPU7, 0x08, 0x00000410, 0x06)
+        {
+        }
     }
-
     Scope (_SB.PCI0)
     {
         Device (PDRC)
@@ -10171,7 +9446,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Store (Zero, TBLN)
                 }
-
                 CreateDWordField (BUF0, 0x10, MBR0)
                 ShiftLeft (MHBR, 0x0F, MBR0)
                 CreateDWordField (BUF0, 0x1C, DBR0)
@@ -10186,50 +9460,41 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             }
         }
     }
-
     Method (BRTN, 1, Serialized)
     {
         If (LEqual (And (DID1, 0x0F00), 0x0400))
         {
             Notify (\_SB.PCI0.GFX0.DD01, Arg0)
         }
-
         If (LEqual (And (DID2, 0x0F00), 0x0400))
         {
             Notify (\_SB.PCI0.GFX0.DD02, Arg0)
         }
-
         If (LEqual (And (DID3, 0x0F00), 0x0400))
         {
             Notify (\_SB.PCI0.GFX0.DD03, Arg0)
         }
-
         If (LEqual (And (DID4, 0x0F00), 0x0400))
         {
             Notify (\_SB.PCI0.GFX0.DD04, Arg0)
         }
-
         If (LEqual (And (DID5, 0x0F00), 0x0400))
         {
             Notify (\_SB.PCI0.GFX0.DD05, Arg0)
         }
-
         If (LEqual (And (DID6, 0x0F00), 0x0400))
         {
             Notify (\_SB.PCI0.GFX0.DD06, Arg0)
         }
-
         If (LEqual (And (DID7, 0x0F00), 0x0400))
         {
             Notify (\_SB.PCI0.GFX0.DD07, Arg0)
         }
-
         If (LEqual (And (DID8, 0x0F00), 0x0400))
         {
             Notify (\_SB.PCI0.GFX0.DD08, Arg0)
         }
     }
-
     Scope (_GPE)
     {
         Method (_L09, 0, NotSerialized)
@@ -10239,56 +9504,47 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 \_SB.PCI0.RP01.HPME ()
                 Notify (\_SB.PCI0.RP01, 0x02)
             }
-
             If (LEqual (RP2D, Zero))
             {
                 \_SB.PCI0.RP02.HPME ()
                 Notify (\_SB.PCI0.RP02, 0x02)
             }
-
             If (LEqual (RP3D, Zero))
             {
                 \_SB.PCI0.RP03.HPME ()
                 Notify (\_SB.PCI0.RP03, 0x02)
             }
-
             If (LEqual (RP4D, Zero))
             {
                 \_SB.PCI0.RP04.HPME ()
                 Notify (\_SB.PCI0.RP04, 0x02)
             }
-
             If (LEqual (RP5D, Zero))
             {
                 \_SB.PCI0.RP05.HPME ()
                 Notify (\_SB.PCI0.RP05, 0x02)
             }
-
             If (LEqual (RP6D, Zero))
             {
                 \_SB.PCI0.RP06.HPME ()
                 Notify (\_SB.PCI0.RP06, 0x02)
             }
-
             If (LEqual (RP7D, Zero))
             {
                 \_SB.PCI0.RP07.HPME ()
                 Notify (\_SB.PCI0.RP07, 0x02)
             }
-
             If (LEqual (RP8D, Zero))
             {
                 \_SB.PCI0.RP08.HPME ()
                 Notify (\_SB.PCI0.RP08, 0x02)
             }
-
             Notify (\_SB.PCI0.PEG0, 0x02)
             Notify (\_SB.PCI0.PEG0.PEGP, 0x02)
             Notify (\_SB.PCI0.PEG1, 0x02)
             Notify (\_SB.PCI0.PEG2, 0x02)
             Notify (\_SB.PCI0.PEG3, 0x02)
         }
-
         Method (_L0D, 0, NotSerialized)
         {
             Notify (\_SB.PCI0.EHC1, 0x02)
@@ -10301,7 +9557,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 Store (One, \_SB.PCI0.XHC.PMES)
             }
         }
-
         Method (_L01, 0, NotSerialized)
         {
             Add (L01C, One, L01C)
@@ -10318,7 +9573,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Store (Zero, \_SB.PCI0.RP01.L0SE)
                     }
-
                     Notify (\_SB.PCI0.RP01, Zero)
                 }
                 Else
@@ -10326,7 +9580,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (One, \_SB.PCI0.RP01.HPSX)
                 }
             }
-
             If (LAnd (LEqual (RP2D, Zero), \_SB.PCI0.RP02.HPSX))
             {
                 P8XH (One, 0x02, One)
@@ -10340,7 +9593,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Store (Zero, \_SB.PCI0.RP02.L0SE)
                     }
-
                     Notify (\_SB.PCI0.RP02, Zero)
                 }
                 Else
@@ -10348,7 +9600,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (One, \_SB.PCI0.RP02.HPSX)
                 }
             }
-
             If (LAnd (LEqual (RP3D, Zero), \_SB.PCI0.RP03.HPSX))
             {
                 P8XH (One, 0x03, One)
@@ -10362,7 +9613,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Store (Zero, \_SB.PCI0.RP03.L0SE)
                     }
-
                     Notify (\_SB.PCI0.RP03, Zero)
                 }
                 Else
@@ -10370,7 +9620,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (One, \_SB.PCI0.RP03.HPSX)
                 }
             }
-
             If (LAnd (LEqual (RP4D, Zero), \_SB.PCI0.RP04.HPSX))
             {
                 P8XH (One, 0x04, One)
@@ -10384,7 +9633,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Store (Zero, \_SB.PCI0.RP04.L0SE)
                     }
-
                     Notify (\_SB.PCI0.RP04, Zero)
                 }
                 Else
@@ -10392,7 +9640,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (One, \_SB.PCI0.RP04.HPSX)
                 }
             }
-
             If (LAnd (LEqual (RP5D, Zero), \_SB.PCI0.RP05.HPSX))
             {
                 P8XH (One, 0x05, One)
@@ -10406,7 +9653,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Store (Zero, \_SB.PCI0.RP05.L0SE)
                     }
-
                     Notify (\_SB.PCI0.RP05, Zero)
                 }
                 Else
@@ -10414,7 +9660,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (One, \_SB.PCI0.RP05.HPSX)
                 }
             }
-
             If (LAnd (LEqual (RP6D, Zero), \_SB.PCI0.RP06.HPSX))
             {
                 Sleep (0x64)
@@ -10426,7 +9671,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Store (Zero, \_SB.PCI0.RP06.L0SE)
                     }
-
                     Notify (\_SB.PCI0.RP06, Zero)
                 }
                 Else
@@ -10434,7 +9678,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (One, \_SB.PCI0.RP06.HPSX)
                 }
             }
-
             If (LAnd (LEqual (RP7D, Zero), \_SB.PCI0.RP07.HPSX))
             {
                 P8XH (One, 0x07, One)
@@ -10454,7 +9697,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (One, \_SB.PCI0.RP07.HPSX)
                 }
             }
-
             If (LAnd (LEqual (RP8D, Zero), \_SB.PCI0.RP08.HPSX))
             {
                 P8XH (One, 0x08, One)
@@ -10475,7 +9717,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 }
             }
         }
-
         Method (_L02, 0, NotSerialized)
         {
             Store (Zero, GPEC)
@@ -10483,13 +9724,7 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             {
                 \_SB.PCI0.IEIT.EITV ()
             }
-
-            If (CondRefOf (\TNOT))
-            {
-                TNOT ()
-            }
         }
-
         Method (_L06, 0, NotSerialized)
         {
             If (LAnd (\_SB.PCI0.GFX0.GSSE, LNot (GSMI)))
@@ -10497,13 +9732,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 \_SB.PCI0.GFX0.GSCI ()
             }
         }
-
         Method (_L07, 0, NotSerialized)
         {
             Store (0x20, \_SB.PCI0.SBUS.HSTS)
         }
     }
-
     Scope (\)
     {
         OperationRegion (IO_T, SystemIO, 0x1100, 0x10)
@@ -10522,19 +9755,16 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Offset (0x0F), 
                     Offset (0x10)
         }
-
         OperationRegion (IO_D, SystemIO, 0x0810, 0x04)
         Field (IO_D, ByteAcc, NoLock, Preserve)
         {
             TRPD,   8
         }
-
         OperationRegion (IO_H, SystemIO, 0x1000, 0x04)
         Field (IO_H, ByteAcc, NoLock, Preserve)
         {
             TRPH,   8
         }
-
         OperationRegion (PMIO, SystemIO, PMBS, 0x80)
         Field (PMIO, ByteAcc, NoLock, Preserve)
         {
@@ -10551,7 +9781,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 ,   1, 
             GPEC,   1
         }
-
         Field (PMIO, ByteAcc, NoLock, WriteAsZeros)
         {
                     Offset (0x20), 
@@ -10563,7 +9792,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             SCIS,   1, 
                     Offset (0x66)
         }
-
         OperationRegion (GPIO, SystemIO, GPBS, 0x64)
         Field (GPIO, ByteAcc, NoLock, Preserve)
         {
@@ -10620,7 +9848,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             GL0A,   8, 
             GL0B,   8
         }
-
         OperationRegion (RCRB, SystemMemory, SRCB, 0x4000)
         Field (RCRB, DWordAcc, Lock, Preserve)
         {
@@ -10663,7 +9890,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 ,   1, 
                     Offset (0x359E)
         }
-
         Method (GPI0, 4, NotSerialized)
         {
             If (LEqual (Or (Arg0, Arg1), Zero))
@@ -10677,11 +9903,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Return (0x0384)
                 }
             }
-
             Return (Multiply (0x1E, Subtract (0x09, Add (Arg2, Arg3))
                 ))
         }
-
         Method (GDMA, 2, NotSerialized)
         {
             If (LEqual (Arg0, One))
@@ -10691,10 +9915,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Return (0x0F)
                 }
             }
-
             Return (Ones)
         }
-
         Method (SFLG, 5, NotSerialized)
         {
             Store (Zero, Local0)
@@ -10705,7 +9927,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             Or (ShiftLeft (Arg4, 0x04), Local0, Local0)
             Return (Local0)
         }
-
         Method (SPIO, 3, NotSerialized)
         {
             Name (PBUF, Buffer (0x05)
@@ -10721,7 +9942,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             {
                 Return (PBUF)
             }
-
             If (LGreater (Arg0, 0xF0))
             {
                 Store (One, DMAE)
@@ -10739,7 +9959,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (0x04, PIOT)
                         Return (PBUF)
                     }
-
                     If (And (LLessEqual (Arg0, 0xB4), And (Arg2, One)
                         ))
                     {
@@ -10756,10 +9975,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     }
                 }
             }
-
             Return (PBUF)
         }
-
         Method (SDMA, 3, NotSerialized)
         {
             Name (PBUF, Buffer (0x05)
@@ -10775,7 +9992,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             {
                 Return (PBUF)
             }
-
             If (LLessEqual (Arg0, 0x78))
             {
                 If (And (Arg1, 0x04))
@@ -10790,7 +10006,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (0x06, DMAT)
                         Return (PBUF)
                     }
-
                     If (And (LLessEqual (Arg0, 0x14), And (Arg2, 0x20)
                         ))
                     {
@@ -10800,7 +10015,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (0x05, DMAT)
                         Return (PBUF)
                     }
-
                     If (And (LLessEqual (Arg0, 0x1E), And (Arg2, 0x10)
                         ))
                     {
@@ -10809,7 +10023,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (0x04, DMAT)
                         Return (PBUF)
                     }
-
                     If (And (LLessEqual (Arg0, 0x2D), And (Arg2, 0x08)
                         ))
                     {
@@ -10818,7 +10031,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (0x03, DMAT)
                         Return (PBUF)
                     }
-
                     If (And (LLessEqual (Arg0, 0x3C), And (Arg2, 0x04)
                         ))
                     {
@@ -10826,7 +10038,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (0x02, DMAT)
                         Return (PBUF)
                     }
-
                     If (And (LLessEqual (Arg0, 0x5A), And (Arg2, 0x02)
                         ))
                     {
@@ -10834,7 +10045,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (One, DMAT)
                         Return (PBUF)
                     }
-
                     If (And (LLessEqual (Arg0, 0x78), And (Arg2, One)
                         ))
                     {
@@ -10842,10 +10052,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     }
                 }
             }
-
             Return (PBUF)
         }
-
         Method (SETT, 3, Serialized)
         {
             If (And (Arg1, 0x02))
@@ -10854,17 +10062,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (0x0B)
                 }
-
                 If (LAnd (LLessEqual (Arg0, 0xB4), And (Arg2, One)))
                 {
                     Return (0x09)
                 }
             }
-
             Return (0x04)
         }
     }
-
     Scope (_SB.PCI0)
     {
         Device (GLAN)
@@ -10890,7 +10095,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 }
             }
         }
-
         Device (EHC1)
         {
             Name (_ADR, 0x001D0000)
@@ -10900,7 +10104,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     ,   1, 
                 PWUC,   8
             }
-
             Method (_PSW, 1, NotSerialized)
             {
                 If (Arg0)
@@ -10912,17 +10115,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (Zero, PWUC)
                 }
             }
-
             Method (_S3D, 0, NotSerialized)
             {
                 Return (0x02)
             }
-
             Method (_S4D, 0, NotSerialized)
             {
                 Return (0x02)
             }
-
             Device (HUBN)
             {
                 Name (_ADR, Zero)
@@ -10940,7 +10140,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         })
                         Return (UPCA)
                     }
-
                     Method (_PLD, 0, Serialized)
                     {
                         Name (PLDP, Package (0x01)
@@ -10953,7 +10152,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         })
                         Return (PLDP)
                     }
-
                     Device (PR11)
                     {
                         Name (_ADR, One)
@@ -10968,7 +10166,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)
                         {
                             Name (PLDP, Package (0x01)
@@ -10982,7 +10179,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Return (PLDP)
                         }
                     }
-
                     Device (PR12)
                     {
                         Name (_ADR, 0x02)
@@ -10997,7 +10193,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)
                         {
                             Name (PLDP, Package (0x01)
@@ -11011,7 +10206,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Return (PLDP)
                         }
                     }
-
                     Device (PR13)
                     {
                         Name (_ADR, 0x03)
@@ -11026,7 +10220,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)
                         {
                             Name (PLDP, Package (0x01)
@@ -11040,7 +10233,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Return (PLDP)
                         }
                     }
-
                     Device (PR14)
                     {
                         Name (_ADR, 0x04)
@@ -11055,7 +10247,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)
                         {
                             Name (PLDP, Package (0x01)
@@ -11068,7 +10259,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (PLDP)
                         }
-
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)
                         {
@@ -11120,15 +10310,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                             }
                                         }
                                     }
-
                                     Break
                                 }
                             }
-
                             Return (Zero)
                         }
                     }
-
                     Device (PR15)
                     {
                         Name (_ADR, 0x05)
@@ -11143,7 +10330,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)
                         {
                             Name (PLDP, Package (0x01)
@@ -11156,7 +10342,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (PLDP)
                         }
-
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)
                         {
@@ -11208,15 +10393,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                             }
                                         }
                                     }
-
                                     Break
                                 }
                             }
-
                             Return (Zero)
                         }
                     }
-
                     Device (PR16)
                     {
                         Name (_ADR, 0x06)
@@ -11231,7 +10413,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)
                         {
                             Name (PLDP, Package (0x01)
@@ -11244,7 +10425,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (PLDP)
                         }
-
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)
                         {
@@ -11296,15 +10476,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                             }
                                         }
                                     }
-
                                     Break
                                 }
                             }
-
                             Return (Zero)
                         }
                     }
-
                     Device (PR17)
                     {
                         Name (_ADR, 0x07)
@@ -11319,7 +10496,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)
                         {
                             Name (PLDP, Package (0x01)
@@ -11332,7 +10508,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (PLDP)
                         }
-
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)
                         {
@@ -11384,15 +10559,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                             }
                                         }
                                     }
-
                                     Break
                                 }
                             }
-
                             Return (Zero)
                         }
                     }
-
                     Device (PR18)
                     {
                         Name (_ADR, 0x08)
@@ -11407,7 +10579,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)
                         {
                             Name (PLDP, Package (0x01)
@@ -11423,14 +10594,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     }
                 }
             }
-
             Name (_PRW, Package (0x02)
             {
                 0x0D, 
                 0x03
             })
         }
-
         Device (EHC2)
         {
             Name (_ADR, 0x001A0000)
@@ -11440,7 +10609,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     ,   1, 
                 PWUC,   6
             }
-
             Method (_PSW, 1, NotSerialized)
             {
                 If (Arg0)
@@ -11452,17 +10620,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (Zero, PWUC)
                 }
             }
-
             Method (_S3D, 0, NotSerialized)
             {
                 Return (0x02)
             }
-
             Method (_S4D, 0, NotSerialized)
             {
                 Return (0x02)
             }
-
             Device (HUBN)
             {
                 Name (_ADR, Zero)
@@ -11480,7 +10645,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         })
                         Return (UPCA)
                     }
-
                     Method (_PLD, 0, Serialized)
                     {
                         Name (PLDP, Package (0x01)
@@ -11493,7 +10657,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         })
                         Return (PLDP)
                     }
-
                     Device (PR11)
                     {
                         Name (_ADR, One)
@@ -11508,7 +10671,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)
                         {
                             Name (PLDP, Package (0x01)
@@ -11522,7 +10684,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Return (PLDP)
                         }
                     }
-
                     Device (PR12)
                     {
                         Name (_ADR, 0x02)
@@ -11537,7 +10698,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)
                         {
                             Name (PLDP, Package (0x01)
@@ -11550,7 +10710,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (PLDP)
                         }
-
                         Alias (SBV1, SDGV)
                         Method (_DSM, 4, Serialized)
                         {
@@ -11602,15 +10761,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                             }
                                         }
                                     }
-
                                     Break
                                 }
                             }
-
                             Return (Zero)
                         }
                     }
-
                     Device (PR13)
                     {
                         Name (_ADR, 0x03)
@@ -11625,7 +10781,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)
                         {
                             Name (PLDP, Package (0x01)
@@ -11638,7 +10793,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (PLDP)
                         }
-
                         Alias (SBV2, SDGV)
                         Method (_DSM, 4, Serialized)
                         {
@@ -11690,15 +10844,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                             }
                                         }
                                     }
-
                                     Break
                                 }
                             }
-
                             Return (Zero)
                         }
                     }
-
                     Device (PR14)
                     {
                         Name (_ADR, 0x04)
@@ -11713,7 +10864,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)
                         {
                             Name (PLDP, Package (0x01)
@@ -11727,7 +10877,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Return (PLDP)
                         }
                     }
-
                     Device (PR15)
                     {
                         Name (_ADR, 0x05)
@@ -11742,7 +10891,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)
                         {
                             Name (PLDP, Package (0x01)
@@ -11756,7 +10904,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Return (PLDP)
                         }
                     }
-
                     Device (PR16)
                     {
                         Name (_ADR, 0x06)
@@ -11771,7 +10918,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (UPCP)
                         }
-
                         Method (_PLD, 0, Serialized)
                         {
                             Name (PLDP, Package (0x01)
@@ -11784,7 +10930,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             })
                             Return (PLDP)
                         }
-
                         Device (CAM0)
                         {
                             Name (_ADR, 0x06)
@@ -11801,14 +10946,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     }
                 }
             }
-
             Name (_PRW, Package (0x02)
             {
                 0x0D, 
                 0x03
             })
         }
-
         Device (XHC)
         {
             Name (_ADR, 0x00140000)
@@ -11825,7 +10968,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 PR3,    32, 
                 PR3M,   32
             }
-
             Name (XRST, Zero)
             Method (CUID, 1, Serialized)
             {
@@ -11837,10 +10979,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (One)
                 }
-
                 Return (Zero)
             }
-
             Method (POSC, 3, Serialized)
             {
                 CreateDWordField (Arg2, Zero, CDW1)
@@ -11849,12 +10989,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Or (CDW1, 0x08, CDW1)
                 }
-
                 If (LEqual (XHCI, Zero))
                 {
                     Or (CDW1, 0x02, CDW1)
                 }
-
                 If (LNot (And (CDW1, One)))
                 {
                     If (And (CDW3, One))
@@ -11866,10 +11004,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         XSEL ()
                     }
                 }
-
                 Return (Arg2)
             }
-
             Method (XSEL, 0, Serialized)
             {
                 If (LOr (LEqual (XHCI, 0x02), LEqual (XHCI, 0x03)))
@@ -11886,7 +11022,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     And (Local0, PR2M, PR2)
                 }
             }
-
             Method (ESEL, 0, Serialized)
             {
                 If (LOr (LEqual (XHCI, 0x02), LEqual (XHCI, 0x03)))
@@ -11897,7 +11032,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (Zero, XRST)
                 }
             }
-
             Method (XWAK, 0, Serialized)
             {
                 If (LOr (LEqual (XUSB, One), LEqual (XRST, One)))
@@ -11905,17 +11039,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     XSEL ()
                 }
             }
-
             Method (_S3D, 0, NotSerialized)
             {
                 Return (0x02)
             }
-
             Method (_S4D, 0, NotSerialized)
             {
                 Return (0x02)
             }
-
             Device (RHUB)
             {
                 Name (_ADR, Zero)
@@ -11935,10 +11066,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
-
                         Return (UPCP)
                     }
-
                     Method (_PLD, 0, Serialized)
                     {
                         Name (PLDP, Package (0x01)
@@ -11954,11 +11083,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             And (VIS, Zero, VIS)
                         }
-
                         Return (PLDP)
                     }
                 }
-
                 Device (HSP2)
                 {
                     Name (_ADR, 0x02)
@@ -11975,10 +11102,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
-
                         Return (UPCP)
                     }
-
                     Method (_PLD, 0, Serialized)
                     {
                         Name (PLDP, Package (0x01)
@@ -11994,11 +11119,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             And (VIS, Zero, VIS)
                         }
-
                         Return (PLDP)
                     }
                 }
-
                 Device (HSP3)
                 {
                     Name (_ADR, 0x03)
@@ -12015,10 +11138,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
-
                         Return (UPCP)
                     }
-
                     Method (_PLD, 0, Serialized)
                     {
                         Name (PLDP, Package (0x01)
@@ -12034,11 +11155,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             And (VIS, Zero, VIS)
                         }
-
                         Return (PLDP)
                     }
                 }
-
                 Device (HSP4)
                 {
                     Name (_ADR, 0x04)
@@ -12055,10 +11174,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
-
                         Return (UPCP)
                     }
-
                     Method (_PLD, 0, Serialized)
                     {
                         Name (PLDP, Package (0x01)
@@ -12074,11 +11191,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             And (VIS, Zero, VIS)
                         }
-
                         Return (PLDP)
                     }
                 }
-
                 Device (SSP1)
                 {
                     Name (_ADR, 0x05)
@@ -12095,10 +11210,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
-
                         Return (UPCP)
                     }
-
                     Method (_PLD, 0, Serialized)
                     {
                         Name (PLDP, Package (0x01)
@@ -12114,11 +11227,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             And (VIS, Zero, VIS)
                         }
-
                         Return (PLDP)
                     }
                 }
-
                 Device (SSP2)
                 {
                     Name (_ADR, 0x06)
@@ -12135,10 +11246,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
-
                         Return (UPCP)
                     }
-
                     Method (_PLD, 0, Serialized)
                     {
                         Name (PLDP, Package (0x01)
@@ -12154,11 +11263,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             And (VIS, Zero, VIS)
                         }
-
                         Return (PLDP)
                     }
                 }
-
                 Device (SSP3)
                 {
                     Name (_ADR, 0x07)
@@ -12175,10 +11282,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
-
                         Return (UPCP)
                     }
-
                     Method (_PLD, 0, Serialized)
                     {
                         Name (PLDP, Package (0x01)
@@ -12194,11 +11299,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             And (VIS, Zero, VIS)
                         }
-
                         Return (PLDP)
                     }
                 }
-
                 Device (SSP4)
                 {
                     Name (_ADR, 0x08)
@@ -12215,10 +11318,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Zero, Index (UPCP, Zero))
                         }
-
                         Return (UPCP)
                     }
-
                     Method (_PLD, 0, Serialized)
                     {
                         Name (PLDP, Package (0x01)
@@ -12234,19 +11335,16 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             And (VIS, Zero, VIS)
                         }
-
                         Return (PLDP)
                     }
                 }
             }
-
             Name (_PRW, Package (0x02)
             {
                 0x0D, 
                 0x03
             })
         }
-
         Device (HDEF)
         {
             Name (_ADR, 0x001B0000)
@@ -12262,7 +11360,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     ,   15, 
                 PMES,   1
             }
-
             Method (_PRW, 0, NotSerialized)
             {
                 If (WKMD)
@@ -12283,7 +11380,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 }
             }
         }
-
         Device (DOCK)
         {
             Name (_HID, "ABCD0000")
@@ -12294,14 +11390,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 P8XH (Zero, 0xED, Zero)
                 Return (One)
             }
-
             Method (_STA, 0, NotSerialized)
             {
                 If (LEqual (ECON, Zero))
                 {
                     Return (Zero)
                 }
-
                 If (DSTS)
                 {
                     Return (0x0F)
@@ -12311,7 +11405,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Return (Zero)
                 }
             }
-
             Method (_DCK, 1, NotSerialized)
             {
                 P8XH (Zero, 0xD3, Zero)
@@ -12325,7 +11418,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Return (One)
                 }
             }
-
             Name (_EDL, Package (0x05)
             {
                 ^RP07.PXSX, 
@@ -12335,7 +11427,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 HDEF
             })
         }
-
         Device (RP01)
         {
             Name (_ADR, 0x001C0000)
@@ -12363,7 +11454,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 HPEX,   1, 
                 PMEX,   1
             }
-
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
                         Offset (0x9C), 
@@ -12371,7 +11461,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 HPSX,   1, 
                 PMSX,   1
             }
-
             Device (PXSX)
             {
                 Name (_ADR, Zero)
@@ -12381,7 +11470,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     0x04
                 })
             }
-
             Method (HPME, 0, Serialized)
             {
                 If (PMSX)
@@ -12399,11 +11487,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (Zero, Local0)
                         }
                     }
-
                     Notify (PXSX, 0x02)
                 }
             }
-
             Method (_PRW, 0, NotSerialized)
             {
                 If (PMEE)
@@ -12423,7 +11509,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     })
                 }
             }
-
             Name (PR05, Package (0x04)
             {
                 Package (0x04)
@@ -12433,7 +11518,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12441,7 +11525,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12449,7 +11532,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12467,7 +11549,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12475,7 +11556,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12483,7 +11563,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12498,11 +11577,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (AR05)
                 }
-
                 Return (PR05)
             }
         }
-
         Device (RP02)
         {
             Name (_ADR, 0x001C0001)
@@ -12530,7 +11607,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 HPEX,   1, 
                 PMEX,   1
             }
-
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
                         Offset (0x9C), 
@@ -12538,7 +11614,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 HPSX,   1, 
                 PMSX,   1
             }
-
             Device (PXSX)
             {
                 Name (_ADR, Zero)
@@ -12548,7 +11623,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     0x04
                 })
             }
-
             Method (HPME, 0, Serialized)
             {
                 If (PMSX)
@@ -12566,11 +11640,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (Zero, Local0)
                         }
                     }
-
                     Notify (PXSX, 0x02)
                 }
             }
-
             Method (_PRW, 0, NotSerialized)
             {
                 If (PMEE)
@@ -12590,7 +11662,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     })
                 }
             }
-
             Name (PR06, Package (0x04)
             {
                 Package (0x04)
@@ -12600,7 +11671,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12608,7 +11678,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12616,7 +11685,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12634,7 +11702,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12642,7 +11709,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12650,7 +11716,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12665,11 +11730,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (AR06)
                 }
-
                 Return (PR06)
             }
         }
-
         Device (RP03)
         {
             Name (_ADR, 0x001C0002)
@@ -12697,7 +11760,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 HPEX,   1, 
                 PMEX,   1
             }
-
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
                         Offset (0x9C), 
@@ -12705,7 +11767,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 HPSX,   1, 
                 PMSX,   1
             }
-
             Device (PXSX)
             {
                 Name (_ADR, Zero)
@@ -12715,7 +11776,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     0x04
                 })
             }
-
             Method (HPME, 0, Serialized)
             {
                 If (PMSX)
@@ -12733,11 +11793,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (Zero, Local0)
                         }
                     }
-
                     Notify (PXSX, 0x02)
                 }
             }
-
             Method (_PRW, 0, NotSerialized)
             {
                 If (PMEE)
@@ -12757,7 +11815,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     })
                 }
             }
-
             Name (PR07, Package (0x04)
             {
                 Package (0x04)
@@ -12767,7 +11824,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12775,7 +11831,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12783,7 +11838,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12801,7 +11855,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12809,7 +11862,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12817,7 +11869,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12832,11 +11883,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (AR07)
                 }
-
                 Return (PR07)
             }
         }
-
         Device (RP04)
         {
             Name (_ADR, 0x001C0003)
@@ -12864,7 +11913,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 HPEX,   1, 
                 PMEX,   1
             }
-
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
                         Offset (0x9C), 
@@ -12872,7 +11920,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 HPSX,   1, 
                 PMSX,   1
             }
-
             Device (PXSX)
             {
                 Name (_ADR, Zero)
@@ -12882,7 +11929,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     0x04
                 })
             }
-
             Method (HPME, 0, Serialized)
             {
                 If (PMSX)
@@ -12900,11 +11946,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (Zero, Local0)
                         }
                     }
-
                     Notify (PXSX, 0x02)
                 }
             }
-
             Method (_PRW, 0, NotSerialized)
             {
                 If (PMEE)
@@ -12924,7 +11968,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     })
                 }
             }
-
             Name (PR08, Package (0x04)
             {
                 Package (0x04)
@@ -12934,7 +11977,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12942,7 +11984,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12950,7 +11991,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12968,7 +12008,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12976,7 +12015,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12984,7 +12022,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -12999,11 +12036,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (AR08)
                 }
-
                 Return (PR08)
             }
         }
-
         Device (RP05)
         {
             Name (_ADR, 0x001C0004)
@@ -13031,7 +12066,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 HPEX,   1, 
                 PMEX,   1
             }
-
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
                         Offset (0x9C), 
@@ -13039,7 +12073,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 HPSX,   1, 
                 PMSX,   1
             }
-
             Device (PXSX)
             {
                 Name (_ADR, Zero)
@@ -13049,7 +12082,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     0x04
                 })
             }
-
             Method (HPME, 0, Serialized)
             {
                 If (PMSX)
@@ -13067,11 +12099,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (Zero, Local0)
                         }
                     }
-
                     Notify (PXSX, 0x02)
                 }
             }
-
             Method (_PRW, 0, NotSerialized)
             {
                 If (PMEE)
@@ -13091,7 +12121,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     })
                 }
             }
-
             Name (PR09, Package (0x04)
             {
                 Package (0x04)
@@ -13101,7 +12130,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13109,7 +12137,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13117,7 +12144,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13135,7 +12161,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13143,7 +12168,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13151,7 +12175,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13166,11 +12189,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (AR09)
                 }
-
                 Return (PR09)
             }
         }
-
         Device (RP06)
         {
             Name (_ADR, 0x001C0005)
@@ -13198,7 +12219,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 HPEX,   1, 
                 PMEX,   1
             }
-
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
                         Offset (0x9C), 
@@ -13206,7 +12226,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 HPSX,   1, 
                 PMSX,   1
             }
-
             Device (PXSX)
             {
                 Name (_ADR, Zero)
@@ -13220,7 +12239,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (Arg0, ^^^LPCB.EC0.ERTC)
                 }
             }
-
             Method (HPME, 0, Serialized)
             {
                 If (PMSX)
@@ -13238,11 +12256,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (Zero, Local0)
                         }
                     }
-
                     Notify (PXSX, 0x02)
                 }
             }
-
             Method (_PRW, 0, NotSerialized)
             {
                 If (PMEE)
@@ -13262,7 +12278,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     })
                 }
             }
-
             Name (PR0C, Package (0x04)
             {
                 Package (0x04)
@@ -13272,7 +12287,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13280,7 +12294,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13288,7 +12301,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13306,7 +12318,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13314,7 +12325,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13322,7 +12332,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13337,11 +12346,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (AR0C)
                 }
-
                 Return (PR0C)
             }
         }
-
         Device (RP07)
         {
             Name (_ADR, 0x001C0006)
@@ -13369,7 +12376,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 HPEX,   1, 
                 PMEX,   1
             }
-
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
                         Offset (0x9C), 
@@ -13377,7 +12383,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 HPSX,   1, 
                 PMSX,   1
             }
-
             Device (PXSX)
             {
                 Name (_ADR, Zero)
@@ -13387,7 +12392,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     0x04
                 })
             }
-
             Method (HPME, 0, Serialized)
             {
                 If (PMSX)
@@ -13405,11 +12409,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (Zero, Local0)
                         }
                     }
-
                     Notify (PXSX, 0x02)
                 }
             }
-
             Method (_PRW, 0, NotSerialized)
             {
                 If (PMEE)
@@ -13429,7 +12431,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     })
                 }
             }
-
             Name (PR0D, Package (0x04)
             {
                 Package (0x04)
@@ -13439,7 +12440,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13447,7 +12447,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13455,7 +12454,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKE, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13473,7 +12471,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13481,7 +12478,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13489,7 +12485,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x14
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13504,11 +12499,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (AR0D)
                 }
-
                 Return (PR0D)
             }
         }
-
         Device (RP08)
         {
             Name (_ADR, 0x001C0007)
@@ -13536,7 +12529,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 HPEX,   1, 
                 PMEX,   1
             }
-
             Field (PXCS, AnyAcc, NoLock, WriteAsZeros)
             {
                         Offset (0x9C), 
@@ -13544,7 +12536,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 HPSX,   1, 
                 PMSX,   1
             }
-
             Device (PXSX)
             {
                 Name (_ADR, Zero)
@@ -13554,7 +12545,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     0x04
                 })
             }
-
             Method (HPME, 0, Serialized)
             {
                 If (PMSX)
@@ -13572,11 +12562,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Store (Zero, Local0)
                         }
                     }
-
                     Notify (PXSX, 0x02)
                 }
             }
-
             Method (_PRW, 0, NotSerialized)
             {
                 If (PMEE)
@@ -13596,7 +12584,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     })
                 }
             }
-
             Name (PR0E, Package (0x04)
             {
                 Package (0x04)
@@ -13606,7 +12593,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13614,7 +12600,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13622,7 +12607,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13640,7 +12624,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13648,7 +12631,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13656,7 +12638,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -13671,21 +12652,17 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (AR0E)
                 }
-
                 Return (PR0E)
             }
         }
-
         Device (SAT0)
         {
             Name (_ADR, 0x001F0002)
         }
-
         Device (SAT1)
         {
             Name (_ADR, 0x001F0005)
         }
-
         Device (SBUS)
         {
             Name (_ADR, 0x001F0003)
@@ -13695,14 +12672,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     ,   2, 
                 I2CE,   1
             }
-
             OperationRegion (SMPB, PCI_Config, 0x20, 0x04)
             Field (SMPB, DWordAcc, NoLock, Preserve)
             {
                     ,   5, 
                 SBAR,   11
             }
-
             OperationRegion (SMBI, SystemIO, ShiftLeft (SBAR, 0x05), 0x10)
             Field (SMBI, ByteAcc, NoLock, Preserve)
             {
@@ -13718,14 +12693,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 RXSA,   8, 
                 SDAT,   16
             }
-
             Method (SSXB, 2, Serialized)
             {
                 If (STRT ())
                 {
                     Return (Zero)
                 }
-
                 Store (Zero, I2CE)
                 Store (0xBF, HSTS)
                 Store (Arg0, TXSA)
@@ -13736,17 +12709,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Or (HSTS, 0xFF, HSTS)
                     Return (One)
                 }
-
                 Return (Zero)
             }
-
             Method (SRXB, 1, Serialized)
             {
                 If (STRT ())
                 {
                     Return (0xFFFF)
                 }
-
                 Store (Zero, I2CE)
                 Store (0xBF, HSTS)
                 Store (Or (Arg0, One), TXSA)
@@ -13756,17 +12726,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Or (HSTS, 0xFF, HSTS)
                     Return (DAT0)
                 }
-
                 Return (0xFFFF)
             }
-
             Method (SWRB, 3, Serialized)
             {
                 If (STRT ())
                 {
                     Return (Zero)
                 }
-
                 Store (Zero, I2CE)
                 Store (0xBF, HSTS)
                 Store (Arg0, TXSA)
@@ -13778,17 +12745,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Or (HSTS, 0xFF, HSTS)
                     Return (One)
                 }
-
                 Return (Zero)
             }
-
             Method (SRDB, 2, Serialized)
             {
                 If (STRT ())
                 {
                     Return (0xFFFF)
                 }
-
                 Store (Zero, I2CE)
                 Store (0xBF, HSTS)
                 Store (Or (Arg0, One), TXSA)
@@ -13799,17 +12763,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Or (HSTS, 0xFF, HSTS)
                     Return (DAT0)
                 }
-
                 Return (0xFFFF)
             }
-
             Method (SWRW, 3, Serialized)
             {
                 If (STRT ())
                 {
                     Return (Zero)
                 }
-
                 Store (Zero, I2CE)
                 Store (0xBF, HSTS)
                 Store (Arg0, TXSA)
@@ -13822,17 +12783,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Or (HSTS, 0xFF, HSTS)
                     Return (One)
                 }
-
                 Return (Zero)
             }
-
             Method (SRDW, 2, Serialized)
             {
                 If (STRT ())
                 {
                     Return (0xFFFF)
                 }
-
                 Store (Zero, I2CE)
                 Store (0xBF, HSTS)
                 Store (Or (Arg0, One), TXSA)
@@ -13843,17 +12801,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Or (HSTS, 0xFF, HSTS)
                     Return (Or (ShiftLeft (DAT0, 0x08), DAT1))
                 }
-
                 Return (Ones)
             }
-
             Method (SBLW, 4, Serialized)
             {
                 If (STRT ())
                 {
                     Return (Zero)
                 }
-
                 Store (Arg3, I2CE)
                 Store (0xBF, HSTS)
                 Store (Arg0, TXSA)
@@ -13870,13 +12825,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Decrement (Local0)
                         Stall (0x32)
                     }
-
                     If (LNot (Local0))
                     {
                         KILL ()
                         Return (Zero)
                     }
-
                     Store (0x80, HSTS)
                     Increment (Local1)
                     If (LGreater (SizeOf (Arg2), Local1))
@@ -13884,16 +12837,13 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (DerefOf (Index (Arg2, Local1)), HBDR)
                     }
                 }
-
                 If (COMP ())
                 {
                     Or (HSTS, 0xFF, HSTS)
                     Return (One)
                 }
-
                 Return (Zero)
             }
-
             Method (SBLR, 3, Serialized)
             {
                 Name (TBUF, Buffer (0x0100) {})
@@ -13901,7 +12851,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (Zero)
                 }
-
                 Store (Arg2, I2CE)
                 Store (0xBF, HSTS)
                 Store (Or (Arg0, One), TXSA)
@@ -13913,13 +12862,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Decrement (Local0)
                     Stall (0x32)
                 }
-
                 If (LNot (Local0))
                 {
                     KILL ()
                     Return (Zero)
                 }
-
                 Store (DAT0, Index (TBUF, Zero))
                 Store (0x80, HSTS)
                 Store (One, Local1)
@@ -13931,27 +12878,22 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Decrement (Local0)
                         Stall (0x32)
                     }
-
                     If (LNot (Local0))
                     {
                         KILL ()
                         Return (Zero)
                     }
-
                     Store (HBDR, Index (TBUF, Local1))
                     Store (0x80, HSTS)
                     Increment (Local1)
                 }
-
                 If (COMP ())
                 {
                     Or (HSTS, 0xFF, HSTS)
                     Return (TBUF)
                 }
-
                 Return (Zero)
             }
-
             Method (STRT, 0, Serialized)
             {
                 Store (0xC8, Local0)
@@ -13971,7 +12913,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (Zero, Local0)
                     }
                 }
-
                 Store (0x0FA0, Local0)
                 While (Local0)
                 {
@@ -13989,10 +12930,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Return (Zero)
                     }
                 }
-
                 Return (One)
             }
-
             Method (COMP, 0, Serialized)
             {
                 Store (0x0FA0, Local0)
@@ -14012,10 +12951,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         }
                     }
                 }
-
                 Return (Zero)
             }
-
             Method (KILL, 0, Serialized)
             {
                 Or (HCON, 0x02, HCON)
@@ -14023,7 +12960,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             }
         }
     }
-
     Name (BUFN, Zero)
     Name (MBUF, Buffer (0x1000) {})
     OperationRegion (MDBG, SystemMemory, 0x9AFA5018, 0x00001004)
@@ -14031,13 +12967,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
     {
         MDG0,   32768
     }
-
     Method (DB2H, 1, Serialized)
     {
         SHOW (Arg0)
         MDGC (0x20)
     }
-
     Method (DW2H, 1, Serialized)
     {
         Store (Arg0, Local0)
@@ -14048,7 +12982,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
         Decrement (BUFN)
         DB2H (Local0)
     }
-
     Method (DD2H, 1, Serialized)
     {
         Store (Arg0, Local0)
@@ -14059,7 +12992,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
         Decrement (BUFN)
         DW2H (Local0)
     }
-
     Method (MBGS, 1, Serialized)
     {
         Store (SizeOf (Arg0), Local0)
@@ -14072,13 +13004,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             Decrement (Local0)
         }
     }
-
     Method (SHOW, 1, Serialized)
     {
         MDGC (NTOC (ShiftRight (Arg0, 0x04)))
         MDGC (NTOC (Arg0))
     }
-
     Method (LINE, 0, Serialized)
     {
         Store (BUFN, Local0)
@@ -14090,7 +13020,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             And (Local0, 0x0F, Local0)
         }
     }
-
     Method (MDGC, 1, Serialized)
     {
         Store (Arg0, Index (MBUF, BUFN))
@@ -14101,7 +13030,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             UP_L (One)
         }
     }
-
     Method (UP_L, 1, Serialized)
     {
         Store (Arg0, Local2)
@@ -14115,7 +13043,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             Decrement (Local2)
         }
     }
-
     Method (MOVE, 1, Serialized)
     {
         Store (Arg0, Local4)
@@ -14129,7 +13056,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             Increment (Local4)
         }
     }
-
     Method (NTOC, 1, Serialized)
     {
         And (Arg0, 0x0F, Local0)
@@ -14141,10 +13067,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
         {
             Add (Local0, 0x37, Local0)
         }
-
         Return (Local0)
     }
-
     Scope (_SB.PCI0.SAT0)
     {
         Device (PRT4)
@@ -14179,7 +13103,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                             0x00
                                         })
                                     }
-
                                     Return (Buffer (One)
                                     {
                                         0x0F
@@ -14192,7 +13115,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                         0x00
                                     })
                                 }
-
                                 Break
                             }
                         }
@@ -14216,7 +13138,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     {
                                         And (GIV0, 0xF7, GIV0)
                                     }
-
                                     Store (One, G3FG)
                                     And (GL08, 0xEF, GL08)
                                     Sleep (0xC8)
@@ -14244,7 +13165,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 }
                             }
                         }
-
                         Break
                     }
                 }
@@ -14255,7 +13175,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             }
         }
     }
-
     Scope (_GPE)
     {
         Method (_L13, 0, NotSerialized)
@@ -14264,12 +13183,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             {
                 Return (Zero)
             }
-
             If (LEqual (PFLV, FDTP))
             {
                 Return (Zero)
             }
-
             Acquire (\_SB.PCI0.SAT0.PRT4.ZPMX, 0xFFFF)
             Store (Zero, GPE3)
             Or (GL08, 0x10, GL08)
@@ -14278,7 +13195,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             Return (Zero)
         }
     }
-
     Scope (_SB.PCI0)
     {
         Device (PEG0)
@@ -14298,7 +13214,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14306,7 +13221,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14314,7 +13228,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14332,7 +13245,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14340,7 +13252,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14348,7 +13259,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14363,10 +13273,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (AR0A)
                 }
-
                 Return (PR0A)
             }
-
             Device (PEGP)
             {
                 Name (_ADR, Zero)
@@ -14376,7 +13284,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Offset (0x0B), 
                     LNKV,   8
                 }
-
                 Name (_PRW, Package (0x02)
                 {
                     0x09, 
@@ -14384,7 +13291,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 })
             }
         }
-
         Device (PEG1)
         {
             Name (_ADR, 0x00010001)
@@ -14402,7 +13308,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14410,7 +13315,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14418,7 +13322,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14436,7 +13339,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14444,7 +13346,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14452,7 +13353,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14467,11 +13367,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (AR02)
                 }
-
                 Return (PR02)
             }
         }
-
         Device (PEG2)
         {
             Name (_ADR, 0x00010002)
@@ -14489,7 +13387,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKC, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14497,7 +13394,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14505,7 +13401,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14523,7 +13418,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x12
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14531,7 +13425,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14539,7 +13432,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14554,11 +13446,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (AR03)
                 }
-
                 Return (PR03)
             }
         }
-
         Device (PEG3)
         {
             Name (_ADR, 0x00060000)
@@ -14576,7 +13466,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKD, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14584,7 +13473,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKA, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14592,7 +13480,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     LNKB, 
                     Zero
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14610,7 +13497,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x13
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14618,7 +13504,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x10
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14626,7 +13511,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Zero, 
                     0x11
                 }, 
-
                 Package (0x04)
                 {
                     0xFFFF, 
@@ -14641,16 +13525,13 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (AR0B)
                 }
-
                 Return (PR0B)
             }
         }
-
         Device (B0D4)
         {
             Name (_ADR, 0x00040000)
         }
-
         Device (GFX0)
         {
             Name (_ADR, 0x00020000)
@@ -14658,11 +13539,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             {
                 ECST (0x6F)
             }
-
             Method (PAPR, 0, NotSerialized)
             {
             }
-
             Method (_DOS, 1, NotSerialized)
             {
                 Store (And (Arg0, 0x07), DSEN)
@@ -14674,7 +13553,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     }
                 }
             }
-
             Method (_DOD, 0, NotSerialized)
             {
                 If (CondRefOf (IDAB))
@@ -14688,43 +13566,35 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Store (SDDL (DIDL), DID1)
                     }
-
                     If (LNotEqual (DDL2, Zero))
                     {
                         Store (SDDL (DDL2), DID2)
                     }
-
                     If (LNotEqual (DDL3, Zero))
                     {
                         Store (SDDL (DDL3), DID3)
                     }
-
                     If (LNotEqual (DDL4, Zero))
                     {
                         Store (SDDL (DDL4), DID4)
                     }
-
                     If (LNotEqual (DDL5, Zero))
                     {
                         Store (SDDL (DDL5), DID5)
                     }
-
                     If (LNotEqual (DDL6, Zero))
                     {
                         Store (SDDL (DDL6), DID6)
                     }
-
                     If (LNotEqual (DDL7, Zero))
                     {
                         Store (SDDL (DDL7), DID7)
                     }
-
                     If (LNotEqual (DDL8, Zero))
                     {
                         Store (SDDL (DDL8), DID8)
                     }
                 }
-
                 If (LEqual (NDID, One))
                 {
                     Name (TMP1, Package (0x01)
@@ -14734,7 +13604,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (Or (0x00010000, DID1), Index (TMP1, Zero))
                     Return (TMP1)
                 }
-
                 If (LEqual (NDID, 0x02))
                 {
                     Name (TMP2, Package (0x02)
@@ -14746,7 +13615,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (Or (0x00010000, DID2), Index (TMP2, One))
                     Return (TMP2)
                 }
-
                 If (LEqual (NDID, 0x03))
                 {
                     Name (TMP3, Package (0x03)
@@ -14760,7 +13628,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (Or (0x00010000, DID3), Index (TMP3, 0x02))
                     Return (TMP3)
                 }
-
                 If (LEqual (NDID, 0x04))
                 {
                     Name (TMP4, Package (0x04)
@@ -14776,7 +13643,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (Or (0x00010000, DID4), Index (TMP4, 0x03))
                     Return (TMP4)
                 }
-
                 If (LEqual (NDID, 0x05))
                 {
                     Name (TMP5, Package (0x05)
@@ -14794,7 +13660,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (Or (0x00010000, DID5), Index (TMP5, 0x04))
                     Return (TMP5)
                 }
-
                 If (LEqual (NDID, 0x06))
                 {
                     Name (TMP6, Package (0x06)
@@ -14814,7 +13679,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (Or (0x00010000, DID6), Index (TMP6, 0x05))
                     Return (TMP6)
                 }
-
                 If (LEqual (NDID, 0x07))
                 {
                     Name (TMP7, Package (0x07)
@@ -14836,7 +13700,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (Or (0x00010000, DID7), Index (TMP7, 0x06))
                     Return (TMP7)
                 }
-
                 If (LEqual (NDID, 0x08))
                 {
                     Name (TMP8, Package (0x08)
@@ -14860,7 +13723,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     Store (Or (0x00010000, DID8), Index (TMP8, 0x07))
                     Return (TMP8)
                 }
-
                 If (LEqual (NDID, 0x09))
                 {
                     If (CondRefOf (HWID))
@@ -14868,13 +13730,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Return (HWID)
                     }
                 }
-
                 Return (Package (0x01)
                 {
                     0x0400
                 })
             }
-
             Device (DD01)
             {
                 Method (_ADR, 0, Serialized)
@@ -14888,12 +13748,10 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Return (And (0xFFFF, DID1))
                     }
                 }
-
                 Method (_DCS, 0, NotSerialized)
                 {
                     Return (CDDS (DID1))
                 }
-
                 Method (_DGS, 0, NotSerialized)
                 {
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
@@ -14901,10 +13759,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Return (NXD1)
                     }
-
                     Return (NDDS (DID1))
                 }
-
                 Method (_DSS, 1, NotSerialized)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
@@ -14913,7 +13769,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     }
                 }
             }
-
             Device (DD02)
             {
                 Method (_ADR, 0, Serialized)
@@ -14927,17 +13782,14 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Return (And (0xFFFF, DID2))
                     }
                 }
-
                 Method (_DCS, 0, NotSerialized)
                 {
                     If (LEqual (LIDS, Zero))
                     {
                         Return (Zero)
                     }
-
                     Return (CDDS (DID2))
                 }
-
                 Method (_DGS, 0, NotSerialized)
                 {
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
@@ -14945,10 +13797,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Return (NXD2)
                     }
-
                     Return (NDDS (DID2))
                 }
-
                 Method (_DSS, 1, NotSerialized)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
@@ -14956,7 +13806,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (NSTE, CSTE)
                     }
                 }
-
                 Method (_BCL, 0, NotSerialized)
                 {
                     Return (Package (0x0D)
@@ -14976,7 +13825,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         0x64
                     })
                 }
-
                 Name (AUOT, Package (0x0B)
                 {
                     0x12, 
@@ -15121,16 +13969,13 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                     }
                                 }
                             }
-
                             Break
                         }
-
                         If (PCHC)
                         {
                             AINT (One, Arg0)
                             Store (Arg0, BRTL)
                         }
-
                         If (ECCL)
                         {
                             Divide (Arg0, 0x0A, Local2, Local1)
@@ -15166,10 +14011,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                         }
                                     }
                                 }
-
                                 Break
                             }
-
                             If (^^^LPCB.EC0.ECAV ())
                             {
                                 Store (Local0, ^^^LPCB.EC0.BRVE)
@@ -15178,7 +14021,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         }
                     }
                 }
-
                 Method (HPPY, 0, NotSerialized)
                 {
                     And (GL00, 0x80, GI07)
@@ -15193,13 +14035,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         ), Local0)
                     Return (Local0)
                 }
-
                 Method (_BQC, 0, NotSerialized)
                 {
                     Return (BRTL)
                 }
             }
-
             Device (DD03)
             {
                 Method (_ADR, 0, Serialized)
@@ -15213,7 +14053,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Return (And (0xFFFF, DID3))
                     }
                 }
-
                 Method (_DCS, 0, NotSerialized)
                 {
                     If (LEqual (DID3, Zero))
@@ -15225,7 +14064,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Return (CDDS (DID3))
                     }
                 }
-
                 Method (_DGS, 0, NotSerialized)
                 {
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
@@ -15233,10 +14071,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Return (NXD3)
                     }
-
                     Return (NDDS (DID3))
                 }
-
                 Method (_DSS, 1, NotSerialized)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
@@ -15245,7 +14081,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     }
                 }
             }
-
             Device (DD04)
             {
                 Method (_ADR, 0, Serialized)
@@ -15259,7 +14094,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Return (And (0xFFFF, DID4))
                     }
                 }
-
                 Method (_DCS, 0, NotSerialized)
                 {
                     If (LEqual (DID4, Zero))
@@ -15271,7 +14105,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Return (CDDS (DID4))
                     }
                 }
-
                 Method (_DGS, 0, NotSerialized)
                 {
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
@@ -15279,10 +14112,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Return (NXD4)
                     }
-
                     Return (NDDS (DID4))
                 }
-
                 Method (_DSS, 1, NotSerialized)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
@@ -15291,7 +14122,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     }
                 }
             }
-
             Device (DD05)
             {
                 Method (_ADR, 0, Serialized)
@@ -15305,7 +14135,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Return (And (0xFFFF, DID5))
                     }
                 }
-
                 Method (_DCS, 0, NotSerialized)
                 {
                     If (LEqual (DID5, Zero))
@@ -15317,7 +14146,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Return (CDDS (DID5))
                     }
                 }
-
                 Method (_DGS, 0, NotSerialized)
                 {
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
@@ -15325,10 +14153,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Return (NXD5)
                     }
-
                     Return (NDDS (DID5))
                 }
-
                 Method (_DSS, 1, NotSerialized)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
@@ -15337,7 +14163,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     }
                 }
             }
-
             Device (DD06)
             {
                 Method (_ADR, 0, Serialized)
@@ -15351,7 +14176,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Return (And (0xFFFF, DID6))
                     }
                 }
-
                 Method (_DCS, 0, NotSerialized)
                 {
                     If (LEqual (DID6, Zero))
@@ -15363,7 +14187,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Return (CDDS (DID6))
                     }
                 }
-
                 Method (_DGS, 0, NotSerialized)
                 {
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
@@ -15371,10 +14194,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Return (NXD6)
                     }
-
                     Return (NDDS (DID6))
                 }
-
                 Method (_DSS, 1, NotSerialized)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
@@ -15383,7 +14204,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     }
                 }
             }
-
             Device (DD07)
             {
                 Method (_ADR, 0, Serialized)
@@ -15397,7 +14217,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Return (And (0xFFFF, DID7))
                     }
                 }
-
                 Method (_DCS, 0, NotSerialized)
                 {
                     If (LEqual (DID7, Zero))
@@ -15409,7 +14228,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Return (CDDS (DID7))
                     }
                 }
-
                 Method (_DGS, 0, NotSerialized)
                 {
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
@@ -15417,10 +14235,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Return (NXD7)
                     }
-
                     Return (NDDS (DID7))
                 }
-
                 Method (_DSS, 1, NotSerialized)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
@@ -15429,7 +14245,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     }
                 }
             }
-
             Device (DD08)
             {
                 Method (_ADR, 0, Serialized)
@@ -15443,7 +14258,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Return (And (0xFFFF, DID8))
                     }
                 }
-
                 Method (_DCS, 0, NotSerialized)
                 {
                     If (LEqual (DID8, Zero))
@@ -15455,7 +14269,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Return (CDDS (DID8))
                     }
                 }
-
                 Method (_DGS, 0, NotSerialized)
                 {
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
@@ -15463,10 +14276,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Return (NXD8)
                     }
-
                     Return (NDDS (DID8))
                 }
-
                 Method (_DSS, 1, NotSerialized)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
@@ -15475,7 +14286,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     }
                 }
             }
-
             Method (SDDL, 1, NotSerialized)
             {
                 Increment (NDID)
@@ -15485,45 +14295,36 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (Local1)
                 }
-
                 If (LEqual (DDL2, Local0))
                 {
                     Return (Local1)
                 }
-
                 If (LEqual (DDL3, Local0))
                 {
                     Return (Local1)
                 }
-
                 If (LEqual (DDL4, Local0))
                 {
                     Return (Local1)
                 }
-
                 If (LEqual (DDL5, Local0))
                 {
                     Return (Local1)
                 }
-
                 If (LEqual (DDL6, Local0))
                 {
                     Return (Local1)
                 }
-
                 If (LEqual (DDL7, Local0))
                 {
                     Return (Local1)
                 }
-
                 If (LEqual (DDL8, Local0))
                 {
                     Return (Local1)
                 }
-
                 Return (Zero)
             }
-
             Method (CDDS, 1, NotSerialized)
             {
                 Store (And (Arg0, 0x0F0F), Local0)
@@ -15531,50 +14332,40 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (0x1D)
                 }
-
                 If (LEqual (CADL, Local0))
                 {
                     Return (0x1F)
                 }
-
                 If (LEqual (CAL2, Local0))
                 {
                     Return (0x1F)
                 }
-
                 If (LEqual (CAL3, Local0))
                 {
                     Return (0x1F)
                 }
-
                 If (LEqual (CAL4, Local0))
                 {
                     Return (0x1F)
                 }
-
                 If (LEqual (CAL5, Local0))
                 {
                     Return (0x1F)
                 }
-
                 If (LEqual (CAL6, Local0))
                 {
                     Return (0x1F)
                 }
-
                 If (LEqual (CAL7, Local0))
                 {
                     Return (0x1F)
                 }
-
                 If (LEqual (CAL8, Local0))
                 {
                     Return (0x1F)
                 }
-
                 Return (0x1D)
             }
-
             Method (NDDS, 1, NotSerialized)
             {
                 Store (And (Arg0, 0x0F0F), Local0)
@@ -15582,50 +14373,40 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Return (Zero)
                 }
-
                 If (LEqual (NADL, Local0))
                 {
                     Return (One)
                 }
-
                 If (LEqual (NDL2, Local0))
                 {
                     Return (One)
                 }
-
                 If (LEqual (NDL3, Local0))
                 {
                     Return (One)
                 }
-
                 If (LEqual (NDL4, Local0))
                 {
                     Return (One)
                 }
-
                 If (LEqual (NDL5, Local0))
                 {
                     Return (One)
                 }
-
                 If (LEqual (NDL6, Local0))
                 {
                     Return (One)
                 }
-
                 If (LEqual (NDL7, Local0))
                 {
                     Return (One)
                 }
-
                 If (LEqual (NDL8, Local0))
                 {
                     Return (One)
                 }
-
                 Return (Zero)
             }
-
             Scope (^^PCI0)
             {
                 OperationRegion (MCHP, PCI_Config, 0x40, 0xC0)
@@ -15636,7 +14417,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             Offset (0x62)
                 }
             }
-
             OperationRegion (IGDP, PCI_Config, 0x40, 0xC0)
             Field (IGDP, AnyAcc, NoLock, Preserve)
             {
@@ -15664,7 +14444,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Offset (0xBC), 
                 ASLS,   32
             }
-
             OperationRegion (IGDM, SystemMemory, ASLB, 0x2000)
             Field (IGDM, AnyAcc, NoLock, Preserve)
             {
@@ -15750,7 +14529,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 PHED,   32, 
                 BDDC,   2048
             }
-
             Name (DBTB, Package (0x15)
             {
                 Zero, 
@@ -15782,25 +14560,21 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     0xE4, 
                     0x0140
                 }, 
-
                 Package (0x02)
                 {
                     0xDE, 
                     0x014D
                 }, 
-
                 Package (0x02)
                 {
                     0xDE, 
                     0x014D
                 }, 
-
                 Package (0x02)
                 {
                     Zero, 
                     Zero
                 }, 
-
                 Package (0x02)
                 {
                     0xDE, 
@@ -15821,14 +14595,12 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (Zero, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, One))
                     {
                         Store (0x0240, PARM)
                         Store (Zero, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x04))
                     {
                         And (PARM, 0xEFFF0000, PARM)
@@ -15838,7 +14610,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (Zero, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x05))
                     {
                         Store (IPSC, PARM)
@@ -15850,7 +14621,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (Zero, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x06))
                     {
                         Store (ITVF, PARM)
@@ -15858,7 +14628,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (Zero, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x07))
                     {
                         Store (GIVD, PARM)
@@ -15871,7 +14640,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (One, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x0A))
                     {
                         Store (Zero, PARM)
@@ -15879,22 +14647,18 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Or (PARM, 0x03, PARM)
                         }
-
                         Store (Zero, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x0B))
                     {
                         Store (KSV0, PARM)
                         Store (KSV1, GESF)
                         Return (SUCC)
                     }
-
                     Store (Zero, GESF)
                     Return (CRIT)
                 }
-
                 Method (SBCB, 0, Serialized)
                 {
                     If (LEqual (GESF, Zero))
@@ -15904,35 +14668,30 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (Zero, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, One))
                     {
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x03))
                     {
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x04))
                     {
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x05))
                     {
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x06))
                     {
                         Store (And (PARM, 0x0F), ITVF)
@@ -15941,7 +14700,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x07))
                     {
                         If (LEqual (PARM, Zero))
@@ -15953,19 +14711,16 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 GLID (CLID)
                             }
                         }
-
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x08))
                     {
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x09))
                     {
                         And (PARM, 0xFF, IBTT)
@@ -15973,7 +14728,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x0A))
                     {
                         And (PARM, 0xFF, IPSC)
@@ -15982,13 +14736,11 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                             And (ShiftRight (PARM, 0x08), 0xFF, IPAT)
                             Decrement (IPAT)
                         }
-
                         And (ShiftRight (PARM, 0x14), 0x07, IBIA)
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x0B))
                     {
                         And (ShiftRight (PARM, One), One, IF1E)
@@ -16000,19 +14752,16 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             And (ShiftRight (PARM, 0x11), 0x0F, IDMS)
                         }
-
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x10))
                     {
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x11))
                     {
                         Store (ShiftLeft (LIDS, 0x08), PARM)
@@ -16020,7 +14769,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (Zero, GESF)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x12))
                     {
                         If (And (PARM, One))
@@ -16039,19 +14787,16 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         {
                             Store (Zero, ISSC)
                         }
-
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x13))
                     {
                         Store (Zero, GESF)
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     If (LEqual (GESF, 0x14))
                     {
                         And (PARM, 0x0F, PAVP)
@@ -16059,55 +14804,45 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (Zero, PARM)
                         Return (SUCC)
                     }
-
                     Store (Zero, GESF)
                     Return (SUCC)
                 }
-
                 If (LEqual (GEFC, 0x04))
                 {
                     Store (GBDA (), GXFC)
                 }
-
                 If (LEqual (GEFC, 0x06))
                 {
                     Store (SBCB (), GXFC)
                 }
-
                 Store (Zero, GEFC)
                 Store (One, SCIS)
                 Store (Zero, GSSE)
                 Store (Zero, SCIE)
                 Return (Zero)
             }
-
             Method (PDRD, 0, NotSerialized)
             {
                 If (LNot (DRDY))
                 {
                     Sleep (ASLP)
                 }
-
                 Return (LNot (DRDY))
             }
-
             Method (PSTS, 0, NotSerialized)
             {
                 If (LGreater (CSTS, 0x02))
                 {
                     Sleep (ASLP)
                 }
-
                 Return (LEqual (CSTS, 0x03))
             }
-
             Method (GNOT, 2, NotSerialized)
             {
                 If (PDRD ())
                 {
                     Return (One)
                 }
-
                 Store (Arg0, CEVT)
                 Store (0x03, CSTS)
                 If (LAnd (LEqual (CHPD, Zero), LEqual (Arg1, Zero)))
@@ -16121,7 +14856,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Notify (GFX0, Arg1)
                     }
                 }
-
                 If (CondRefOf (HNOT))
                 {
                     HNOT (Arg0)
@@ -16130,16 +14864,13 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Notify (GFX0, 0x80)
                 }
-
                 Return (Zero)
             }
-
             Method (GHDS, 1, NotSerialized)
             {
                 Store (Arg0, TIDX)
                 Return (GNOT (One, Zero))
             }
-
             Method (GLID, 1, NotSerialized)
             {
                 If (LEqual (Arg0, One))
@@ -16150,38 +14881,31 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                 {
                     Store (Arg0, CLID)
                 }
-
                 Return (GNOT (0x02, Zero))
             }
-
             Method (GDCK, 1, NotSerialized)
             {
                 Store (Arg0, CDCK)
                 Return (GNOT (0x04, Zero))
             }
-
             Method (PARD, 0, NotSerialized)
             {
                 If (LNot (ARDY))
                 {
                     Sleep (ASLP)
                 }
-
                 Return (LNot (ARDY))
             }
-
             Method (AINT, 2, NotSerialized)
             {
                 If (LNot (And (TCHE, ShiftLeft (One, Arg0))))
                 {
                     Return (One)
                 }
-
                 If (PARD ())
                 {
                     Return (One)
                 }
-
                 If (LEqual (Arg0, 0x02))
                 {
                     If (CPFM)
@@ -16206,7 +14930,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 }
                             }
                         }
-
                         If (LEqual (Local0, 0x06))
                         {
                             If (And (Local1, 0x08))
@@ -16225,7 +14948,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                                 }
                             }
                         }
-
                         If (LEqual (Local0, 0x08))
                         {
                             If (And (Local1, One))
@@ -16249,7 +14971,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         XOr (PFIT, 0x07, PFIT)
                     }
-
                     Or (PFIT, 0x80000000, PFIT)
                     Store (0x04, ASLC)
                 }
@@ -16274,21 +14995,17 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         }
                     }
                 }
-
                 Store (One, ASLE)
                 Return (Zero)
             }
-
             Method (SCIP, 0, NotSerialized)
             {
                 If (LNotEqual (OVER, Zero))
                 {
                     Return (LNot (GSMI))
                 }
-
                 Return (Zero)
             }
-
             Device (^^MEM2)
             {
                 Name (_HID, EisaId ("PNP0C01"))
@@ -16321,10 +15038,8 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Return (0x0F)
                     }
-
                     Return (Zero)
                 }
-
                 Method (_CRS, 0, NotSerialized)
                 {
                     If (LOr (LEqual (And (PNHM, 0x0FFF0FF0), 0x000206A0), LEqual (And (
@@ -16332,11 +15047,9 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                     {
                         Return (CRS1)
                     }
-
                     Return (CRS2)
                 }
             }
-
             Method (_DSM, 4, Serialized)
             {
                 Name (DRET, Buffer (0x04)
@@ -16355,23 +15068,19 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
                         Store (0x02, F0SS)
                         Return (DRET)
                     }
-
                     If (LEqual (Arg2, One))
                     {
                         If (LEqual (^^PEG0.PEGP.LNKV, 0x03))
                         {
                             Return (Zero)
                         }
-
                         Return (One)
                     }
                 }
-
                 Return (DRET)
             }
         }
     }
-
     Name (_S0, Package (0x04)
     {
         Zero, 
@@ -16389,7 +15098,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             Zero
         })
     }
-
     If (SS4)
     {
         Name (_S4, Package (0x04)
@@ -16400,7 +15108,6 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
             Zero
         })
     }
-
     Name (_S5, Package (0x04)
     {
         0x07, 
@@ -16409,4 +15116,3 @@ DefinitionBlock ("D:\ApplePlan\CLover\DSDTEditor-Linux-Mac-Win\dsdt.aml", "DSDT"
         Zero
     })
 }
-
